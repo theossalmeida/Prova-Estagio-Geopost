@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 2px;
+    background-color: rgb(73, 6, 55);
+}
+
+.faseDeGrupos {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    background-image: url('../public/imgs/fundoGrupos.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+}
+
+.titulo {
+    color: white;
+    font-size: 50px;
+    text-align: center;
+}
+
+.grupo {
+    width: 100%;
+    padding: 10px;
+    font-size:40px;
+    color: white;
+    text-align: left;
+}
+.flagPais {
+    width: 40px;
+    height: 40px;
+    padding-left: 25px;
+    padding-right: 10px;
+}
+
+.resultadosGrupos {
+    font-size: 20px;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    justify-content: center;
+}
+
+table.rodadasGrupo {
+    border: solid white 1px;
+    width: 100%;
+    justify-content: center;
+}
