@@ -1,5 +1,6 @@
 import axios from "axios"
 import { Component, Fragment, useEffect, useState } from "react"
+import { Grupos } from "./components/comp_Grupos";
 import * as r from "./gols"
 import * as c from "./pontuacao"
 
@@ -645,62 +646,62 @@ export function Simulacao() {
             <div class="faseDeGrupos">
                 <div class="titulo">Grupos sorteados: </div>
                 <table class="grupo">
-                    <tr>
-                        <td>Grupo A :</td>
-                        <td><img class="flagPais" src={`../imgs/${grupoA[0]}.png`} />{grupoA[0]}</td>
-                        <td><img class="flagPais" src={`../imgs/${grupoA[1]}.png`} />{grupoA[1]} </td>
-                        <td><img class="flagPais" src={`../imgs/${grupoA[2]}.png`} />{grupoA[2]} </td>
-                        <td><img class="flagPais" src={`../imgs/${grupoA[3]}.png`} />{grupoA[3]} </td>
-                    </tr>
-                    <tr>
-                        <td>Grupo B :</td>
-                        <td><img class="flagPais" src={`../imgs/${grupoB[0]}.png`} />{grupoB[0]}</td>
-                        <td><img class="flagPais" src={`../imgs/${grupoB[1]}.png`} />{grupoB[1]} </td>
-                        <td><img class="flagPais" src={`../imgs/${grupoB[2]}.png`} />{grupoB[2]} </td>
-                        <td><img class="flagPais" src={`../imgs/${grupoB[3]}.png`} />{grupoB[3]} </td>
-                    </tr>
-                    <tr>
-                        <td>Grupo C :</td>
-                        <td><img class="flagPais" src={`../imgs/${grupoC[0]}.png`} />{grupoC[0]}</td>
-                        <td><img class="flagPais" src={`../imgs/${grupoC[1]}.png`} />{grupoC[1]} </td>
-                        <td><img class="flagPais" src={`../imgs/${grupoC[2]}.png`} />{grupoC[2]} </td>
-                        <td><img class="flagPais" src={`../imgs/${grupoC[3]}.png`} />{grupoC[3]} </td>
-                    </tr>
-                    <tr>
-                        <td>Grupo D :</td>
-                        <td><img class="flagPais" src={`../imgs/${grupoD[0]}.png`} />{grupoD[0]}</td>
-                        <td><img class="flagPais" src={`../imgs/${grupoD[1]}.png`} />{grupoD[1]} </td>
-                        <td><img class="flagPais" src={`../imgs/${grupoD[2]}.png`} />{grupoD[2]} </td>
-                        <td><img class="flagPais" src={`../imgs/${grupoD[3]}.png`} />{grupoD[3]} </td>
-                    </tr>
-                    <tr>
-                        <td>Grupo E :</td>
-                        <td><img class="flagPais" src={`../imgs/${grupoE[0]}.png`} />{grupoE[0]}</td>
-                        <td><img class="flagPais" src={`../imgs/${grupoE[1]}.png`} />{grupoE[1]} </td>
-                        <td><img class="flagPais" src={`../imgs/${grupoE[2]}.png`} />{grupoE[2]} </td>
-                        <td><img class="flagPais" src={`../imgs/${grupoE[3]}.png`} />{grupoE[3]} </td>
-                    </tr>
-                    <tr>
-                        <td>Grupo F :</td>
-                        <td><img class="flagPais" src={`../imgs/${grupoF[0]}.png`} />{grupoF[0]}</td>
-                        <td><img class="flagPais" src={`../imgs/${grupoF[1]}.png`} />{grupoF[1]} </td>
-                        <td><img class="flagPais" src={`../imgs/${grupoF[2]}.png`} />{grupoF[2]} </td>
-                        <td><img class="flagPais" src={`../imgs/${grupoF[3]}.png`} />{grupoF[3]} </td>
-                    </tr>
-                    <tr>
-                        <td>Grupo G :</td>
-                        <td><img class="flagPais" src={`../imgs/${grupoG[0]}.png`} />{grupoG[0]}</td>
-                        <td><img class="flagPais" src={`../imgs/${grupoG[1]}.png`} />{grupoG[1]} </td>
-                        <td><img class="flagPais" src={`../imgs/${grupoG[2]}.png`} />{grupoG[2]} </td>
-                        <td><img class="flagPais" src={`../imgs/${grupoG[3]}.png`} />{grupoG[3]} </td>
-                    </tr>
-                    <tr>
-                        <td>Grupo H :</td>
-                        <td><img class="flagPais" src={`../imgs/${grupoH[0]}.png`} />{grupoH[0]}</td>
-                        <td><img class="flagPais" src={`../imgs/${grupoH[1]}.png`} />{grupoH[1]} </td>
-                        <td><img class="flagPais" src={`../imgs/${grupoH[2]}.png`} />{grupoH[2]} </td>
-                        <td><img class="flagPais" src={`../imgs/${grupoH[3]}.png`} />{grupoH[3]} </td>
-                    </tr>
+                    <Grupos 
+                    grupo="Grupo A:"
+                    time1={grupoA[0]}
+                    time2={grupoA[1]}
+                    time3={grupoA[2]}
+                    time4={grupoA[3]}
+                    />
+                    <Grupos 
+                    grupo="Grupo B:"
+                    time1={grupoB[0]}
+                    time2={grupoB[1]}
+                    time3={grupoB[2]}
+                    time4={grupoB[3]}
+                    />
+                    <Grupos 
+                    grupo="Grupo C:"
+                    time1={grupoC[0]}
+                    time2={grupoC[1]}
+                    time3={grupoC[2]}
+                    time4={grupoC[3]}
+                    />
+                    <Grupos 
+                    grupo="Grupo D:"
+                    time1={grupoD[0]}
+                    time2={grupoD[1]}
+                    time3={grupoD[2]}
+                    time4={grupoD[3]}
+                    />
+                    <Grupos 
+                    grupo="Grupo E:"
+                    time1={grupoE[0]}
+                    time2={grupoE[1]}
+                    time3={grupoE[2]}
+                    time4={grupoE[3]}
+                    />
+                    <Grupos 
+                    grupo="Grupo F:"
+                    time1={grupoF[0]}
+                    time2={grupoF[1]}
+                    time3={grupoF[2]}
+                    time4={grupoF[3]}
+                    />
+                    <Grupos 
+                    grupo="Grupo G:"
+                    time1={grupoG[0]}
+                    time2={grupoG[1]}
+                    time3={grupoG[2]}
+                    time4={grupoG[3]}
+                    />
+                    <Grupos 
+                    grupo="Grupo H:"
+                    time1={grupoH[0]}
+                    time2={grupoH[1]}
+                    time3={grupoH[2]}
+                    time4={grupoH[3]}
+                    />
                 </table>
             </div>
             <div class="resultadosGrupos">
