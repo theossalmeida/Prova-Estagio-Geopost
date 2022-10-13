@@ -116,125 +116,160 @@ export var gHt4r2 = Math.floor(Math.random()*x)
 export var gHt4r3 = Math.floor(Math.random()*x)
 
 // Gols Oitavas de Final:
-export var Gol_1A = Math.floor(Math.random()*x);
-export var Gol_2B = Math.floor(Math.random()*x);
-export var Gol_2A = Math.floor(Math.random()*x); 
-export var Gol_1B = Math.floor(Math.random()*x);
-export var Gol_1C = Math.floor(Math.random()*x); 
-export var Gol_2D = Math.floor(Math.random()*x);
-export var Gol_2C = Math.floor(Math.random()*x); 
-export var Gol_1D = Math.floor(Math.random()*x);
-export var Gol_1E = Math.floor(Math.random()*x); 
-export var Gol_2F = Math.floor(Math.random()*x);
-export var Gol_2E = Math.floor(Math.random()*x); 
-export var Gol_1F = Math.floor(Math.random()*x);
-export var Gol_1G = Math.floor(Math.random()*x); 
-export var Gol_2H = Math.floor(Math.random()*x);
-export var Gol_2G = Math.floor(Math.random()*x); 
-export var Gol_1H = Math.floor(Math.random()*x);
+export var gol_1A = Math.floor(Math.random()*x);
+export var gol_2B = Math.floor(Math.random()*x);
+export var gol_2A = Math.floor(Math.random()*x); 
+export var gol_1B = Math.floor(Math.random()*x);
+export var gol_1C = Math.floor(Math.random()*x); 
+export var gol_2D = Math.floor(Math.random()*x);
+export var gol_2C = Math.floor(Math.random()*x); 
+export var gol_1D = Math.floor(Math.random()*x);
+export var gol_1E = Math.floor(Math.random()*x); 
+export var gol_2F = Math.floor(Math.random()*x);
+export var gol_2E = Math.floor(Math.random()*x); 
+export var gol_1F = Math.floor(Math.random()*x);
+export var gol_1G = Math.floor(Math.random()*x); 
+export var gol_2H = Math.floor(Math.random()*x);
+export var gol_2G = Math.floor(Math.random()*x); 
+export var gol_1H = Math.floor(Math.random()*x);
 
-export var PenaltiA1 = 0
-export var PenaltiB2 = 0 
-if (Gol_1A === Gol_2B) {
-    while (PenaltiA1 === PenaltiB2) {
-        PenaltiA1 = Math.floor(Math.random()*x);
-        PenaltiB2 = Math.floor(Math.random()*x);
+export var penaltiA1 = 0
+export var penaltiB2 = 0 
+if (gol_1A === gol_2B) {
+    while (penaltiA1 === penaltiB2) {
+        penaltiA1 = Math.floor(Math.random()*x);
+        penaltiB2 = Math.floor(Math.random()*x);
 }}
 
-export var PenaltiA2 = 0
-export var PenaltiB1 = 0
-if (Gol_2A === Gol_1B) {
-    while (PenaltiA2 === PenaltiB1) {
-        PenaltiA2 = Math.floor(Math.random()*x);
-        PenaltiB1 = Math.floor(Math.random()*x);
+export var penaltiA2 = 0
+export var penaltiB1 = 0
+if (gol_2A === gol_1B) {
+    while (penaltiA2 === penaltiB1) {
+        penaltiA2 = Math.floor(Math.random()*x);
+        penaltiB1 = Math.floor(Math.random()*x);
 }}
 
-export var PenaltiC1 = 0
-export var PenaltiD2 = 0
-if (Gol_1C === Gol_2D) {
-    while (PenaltiC1 === PenaltiD2) {
-        PenaltiD2 = Math.floor(Math.random()*x);
-        PenaltiC1 = Math.floor(Math.random()*x);
+export var penaltiC1 = 0
+export var penaltiD2 = 0
+if (gol_1C === gol_2D) {
+    while (penaltiC1 === penaltiD2) {
+        penaltiD2 = Math.floor(Math.random()*x);
+        penaltiC1 = Math.floor(Math.random()*x);
 }}
 
-export var PenaltiC2 = 0
-export var PenaltiD1 = 0
-if (Gol_2C === Gol_1D) {
-    while (PenaltiC2 === PenaltiD1) {
-        PenaltiC2 = Math.floor(Math.random()*x);
-        PenaltiD1 = Math.floor(Math.random()*x);
+export var penaltiC2 = 0
+export var penaltiD1 = 0
+if (gol_2C === gol_1D) {
+    while (penaltiC2 === penaltiD1) {
+        penaltiC2 = Math.floor(Math.random()*x);
+        penaltiD1 = Math.floor(Math.random()*x);
 }}
 
-export var PenaltiE2 = 0
-export var PenaltiF1 = 0
-if (Gol_2E === Gol_1F) {
-    while (PenaltiE2 === PenaltiF1) {
-        PenaltiE2 = Math.floor(Math.random()*x);
-        PenaltiF1 = Math.floor(Math.random()*x);
+export var penaltiE2 = 0
+export var penaltiF1 = 0
+if (gol_2E === gol_1F) {
+    while (penaltiE2 === penaltiF1) {
+        penaltiE2 = Math.floor(Math.random()*x);
+        penaltiF1 = Math.floor(Math.random()*x);
 }}
 
-export var PenaltiF2 = 0
-export var PenaltiE1 = 0
-if (Gol_1E === Gol_2F) {
-    while (PenaltiE1 === PenaltiF2) {
-        PenaltiE1 = Math.floor(Math.random()*x);
-        PenaltiF2 = Math.floor(Math.random()*x);
+export var penaltiF2 = 0
+export var penaltiE1 = 0
+if (gol_1E === gol_2F) {
+    while (penaltiE1 === penaltiF2) {
+        penaltiE1 = Math.floor(Math.random()*x);
+        penaltiF2 = Math.floor(Math.random()*x);
 }}
 
-export var PenaltiG1 = 0
-export var PenaltiH2 = 0
-if (Gol_1G === Gol_2H) {
-    while (PenaltiH2 === PenaltiG1) {
-        PenaltiH2 = Math.floor(Math.random()*x);
-        PenaltiG1 = Math.floor(Math.random()*x);
+export var penaltiG1 = 0
+export var penaltiH2 = 0
+if (gol_1G === gol_2H) {
+    while (penaltiH2 === penaltiG1) {
+        penaltiH2 = Math.floor(Math.random()*x);
+        penaltiG1 = Math.floor(Math.random()*x);
 }}
 
-export var PenaltiG2 = 0
-export var PenaltiH1 = 0
-if (Gol_2G === Gol_1H) {
-    while (PenaltiG2 === PenaltiH1) {
-        PenaltiG2 = Math.floor(Math.random()*x);
-        PenaltiH1 = Math.floor(Math.random()*x);
+export var penaltiG2 = 0
+export var penaltiH1 = 0
+if (gol_2G === gol_1H) {
+    while (penaltiG2 === penaltiH1) {
+        penaltiG2 = Math.floor(Math.random()*x);
+        penaltiH1 = Math.floor(Math.random()*x);
 }}
 
 // Gols das quartas
-export var Gol_O11 = Math.floor(Math.random()*x);
-export var Gol_O12 = Math.floor(Math.random()*x);
-export var Gol_O21 = Math.floor(Math.random()*x);
-export var Gol_O22 = Math.floor(Math.random()*x);
-export var Gol_O31 = Math.floor(Math.random()*x);
-export var Gol_O32 = Math.floor(Math.random()*x);
-export var Gol_O41 = Math.floor(Math.random()*x);
-export var Gol_O42 = Math.floor(Math.random()*x);
+export var gol_O11 = Math.floor(Math.random()*x);
+export var gol_O12 = Math.floor(Math.random()*x);
+export var gol_O21 = Math.floor(Math.random()*x);
+export var gol_O22 = Math.floor(Math.random()*x);
+export var gol_O31 = Math.floor(Math.random()*x);
+export var gol_O32 = Math.floor(Math.random()*x);
+export var gol_O41 = Math.floor(Math.random()*x);
+export var gol_O42 = Math.floor(Math.random()*x);
 
-export var PenaltiO11 = 0
-export var PenaltiO12 = 0
-if (Gol_O11 === Gol_O12) {
-    while (PenaltiO11 === PenaltiO12) {
-        PenaltiO11 = Math.floor(Math.random()*x);
-        PenaltiO12 = Math.floor(Math.random()*x);
+export var penaltiO11 = 0
+export var penaltiO12 = 0
+if (gol_O11 === gol_O12) {
+    while (penaltiO11 === penaltiO12) {
+        penaltiO11 = Math.floor(Math.random()*x);
+        penaltiO12 = Math.floor(Math.random()*x);
 }}
 
-export var PenaltiO21 = 0
-export var PenaltiO22 = 0
-if (Gol_O21 === Gol_O22) {
-    while (PenaltiO21 === PenaltiO22) {
-        PenaltiO21 = Math.floor(Math.random()*x);
-        PenaltiO22 = Math.floor(Math.random()*x);
+export var penaltiO21 = 0
+export var penaltiO22 = 0
+if (gol_O21 === gol_O22) {
+    while (penaltiO21 === penaltiO22) {
+        penaltiO21 = Math.floor(Math.random()*x);
+        penaltiO22 = Math.floor(Math.random()*x);
 }}
 
-export var PenaltiO31 = 0
-export var PenaltiO32 = 0
-if (Gol_O31 === Gol_O32) {
-    while (PenaltiO31 === PenaltiO32) {
-        PenaltiO31 = Math.floor(Math.random()*x);
-        PenaltiO32 = Math.floor(Math.random()*x);
+export var penaltiO31 = 0
+export var penaltiO32 = 0
+if (gol_O31 === gol_O32) {
+    while (penaltiO31 === penaltiO32) {
+        penaltiO31 = Math.floor(Math.random()*x);
+        penaltiO32 = Math.floor(Math.random()*x);
 }}
 
-export var PenaltiO41 = 0
-export var PenaltiO42 = 0
-if (Gol_O41 === Gol_O42) {
-    while (PenaltiO41 === PenaltiO42) {
-        PenaltiO41 = Math.floor(Math.random()*x);
-        PenaltiO42 = Math.floor(Math.random()*x);
+export var penaltiO41 = 0
+export var penaltiO42 = 0
+if (gol_O41 === gol_O42) {
+    while (penaltiO41 === penaltiO42) {
+        penaltiO41 = Math.floor(Math.random()*x);
+        penaltiO42 = Math.floor(Math.random()*x);
+}}
+
+
+// Gols das semis
+export var gol_S11 = Math.floor(Math.random()*x);
+export var gol_S12 = Math.floor(Math.random()*x);
+export var gol_S21 = Math.floor(Math.random()*x);
+export var gol_S22 = Math.floor(Math.random()*x);
+
+export var penaltiS11 = 0
+export var penaltiS12 = 0
+if (gol_S11 === gol_S12) {
+    while (penaltiS11 === penaltiS12) {
+        penaltiS11 = Math.floor(Math.random()*x);
+        penaltiS12 = Math.floor(Math.random()*x);
+}}
+
+export var penaltiS21 = 0
+export var penaltiS22 = 0
+if (gol_S21 === gol_S22) {
+    while (penaltiS21 === penaltiS22) {
+        penaltiS21 = Math.floor(Math.random()*x);
+        penaltiS22 = Math.floor(Math.random()*x);
+}}
+
+// Gols da final
+export var golsA = Math.floor(Math.random()*x);
+export var golsB = Math.floor(Math.random()*x);
+export var penaltisA = 0
+export var penaltisB = 0
+
+if (golsA === golsB) {
+    while (penaltisA === penaltisB) {
+        penaltisA = Math.floor(Math.random()*x);
+        penaltisB = Math.floor(Math.random()*x);
 }}

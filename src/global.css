@@ -23,6 +23,8 @@ body {
     color: white;
     font-size: 50px;
     text-align: center;
+    padding-top: 30px;
+    padding-bottom: 10px;
 }
 
 .grupo {
@@ -32,6 +34,7 @@ body {
     color: white;
     text-align: left;
 }
+
 .flagPais {
     width: 40px;
     height: 40px;
@@ -40,8 +43,8 @@ body {
 }
 
 .resultadosGrupos {
-    font-size: 20px;
-    padding: 10px;
+    font-size: 18px;
+    padding: 20px;
     color: white;
     text-align: center;
     justify-content: center;
@@ -90,6 +93,7 @@ table.classGrupos td {
     justify-content: center;
     background-image: url('../public/imgs/fundoMataMata.webp');
     background-size: cover;
+    padding: 10px;
 }
 
 table.eliminatorias {
@@ -111,3 +115,55 @@ table.eliminatorias tr td {
     justify-content: space-evenly;
 }
 
+.final {
+    color: black;
+    text-align: center;
+    justify-content: center;
+    background-image: url('../public/imgs/fundoFinal.jpeg');
+    background-size: cover;
+    padding: 10px;
+}
+
+table.tabela-final {
+    display: flex;
+    color: black;
+    font-size: 20px;
+    padding: 10px;
+    border: 1px solid black;
+    justify-content: center;
+    font-size: 25px;
+}
+
+table.tabela-final tr {
+    border: 1px solid black;
+}
+
+table.tabela-final tr td {
+    width: 200px;
+    height: auto;
+    justify-content: space-evenly;
+}
+
+.titulo-final {
+    color: black;
+    font-size: 60px;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+
+.campeao{
+    color: black;
+    font-size: 60px;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    background-image: url('../public/imgs/fundoCampeao.jpeg');
+    background-size: cover;
+    padding: 10px;
+    align-items: center;
+}
+
+.bandeira-campeao {
+    width: 100px;
+}

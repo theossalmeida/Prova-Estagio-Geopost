@@ -189,28 +189,28 @@ export function Simulacao() {
     let class_oitavas = []
     // 1A x 2B
     function Oitavas1() {    
-        if (r.Gol_1A != r.Gol_2B) {
+        if (r.gol_1A != r.gol_2B) {
             return (
                 <table>
                     <tr>
                         <td align="right">{classificacaoA[0].name}</td>
-                        <td align="center">{r.Gol_1A}x{r.Gol_2B}</td>
+                        <td align="center">{r.gol_1A}x{r.gol_2B}</td>
                         <td align="left">{classificacaoB[1].name}</td>
                     </tr>
                 </table>
         )
-    } else if (r.Gol_1A === r.Gol_2B) {
+    } else if (r.gol_1A === r.gol_2B) {
         return (
             <table>
                 <tr>
                     <td align="right">{classificacaoA[0].name}</td>
-                    <td align="center">{r.Gol_1A} ({r.PenaltiA1}) x ({r.PenaltiB2}) {r.Gol_2B}</td>
+                    <td align="center">{r.gol_1A} ({r.penaltiA1}) x ({r.penaltiB2}) {r.gol_2B}</td>
                     <td align="left">{classificacaoB[1].name}</td>
                 </tr>
             </table>
         )}
 }
-    if ((r.Gol_1A+r.PenaltiA1) > (r.Gol_2B+r.PenaltiB2)) {
+    if ((r.gol_1A+r.penaltiA1) > (r.gol_2B+r.penaltiB2)) {
         class_oitavas.push(classificacaoA[0].name)
     } else {
         class_oitavas.push(classificacaoB[1].name)
@@ -218,28 +218,28 @@ export function Simulacao() {
 
     // 2B X 1A
     function Oitavas2() {    
-    if (r.Gol_1B != r.Gol_2A) {
+    if (r.gol_1B != r.gol_2A) {
         return (
             <table>
                 <tr>
                     <td align="right">{classificacaoA[1].name}</td>
-                    <td align="center">{r.Gol_2A}x{r.Gol_1B}</td>
+                    <td align="center">{r.gol_2A}x{r.gol_1B}</td>
                     <td align="left">{classificacaoB[0].name}</td>
                 </tr>
             </table>
     )
-} else if (r.Gol_2A === r.Gol_1B) {
+} else if (r.gol_2A === r.gol_1B) {
     return (
         <table>
             <tr>
                 <td align="right">{classificacaoA[1].name}</td>
-                <td align="center">{r.Gol_2A} ({r.PenaltiA2}) x ({r.PenaltiB1}) {r.Gol_1B}</td>
+                <td align="center">{r.gol_2A} ({r.penaltiA2}) x ({r.penaltiB1}) {r.gol_1B}</td>
                 <td align="left">{classificacaoB[0].name}</td>
             </tr>
         </table>
     )}
 }
-    if ((r.Gol_2B+r.PenaltiB2) > (r.Gol_2A+r.PenaltiA2)) {
+    if ((r.gol_1B+r.penaltiB1) > (r.gol_2A+r.penaltiA2)) {
         class_oitavas.push(classificacaoB[0].name)
     } else {
         class_oitavas.push(classificacaoA[1].name)
@@ -247,28 +247,28 @@ export function Simulacao() {
 
     // 1C X 2D 
     function Oitavas3() {    
-        if (r.Gol_1C != r.Gol_2D) {
+        if (r.gol_1C != r.gol_2D) {
             return (
                 <table>
                     <tr>
                         <td align="right">{classificacaoC[0].name}</td>
-                        <td align="center">{r.Gol_1C}x{r.Gol_2D}</td>
+                        <td align="center">{r.gol_1C}x{r.gol_2D}</td>
                         <td align="left">{classificacaoD[1].name}</td>
                     </tr>
                 </table>
         )
-    } else if (r.Gol_1C === r.Gol_2D) {
+    } else if (r.gol_1C === r.gol_2D) {
         return (
             <table>
                 <tr>
                     <td align="right">{classificacaoC[0].name}</td>
-                    <td align="center">{r.Gol_1C} ({r.PenaltiC1}) x ({r.PenaltiD2}) {r.Gol_2D}</td>
+                    <td align="center">{r.gol_1C} ({r.penaltiC1}) x ({r.penaltiD2}) {r.gol_2D}</td>
                     <td align="left">{classificacaoD[1].name}</td>
                 </tr>
             </table>
         )}
     }
-    if ((r.Gol_1C+r.PenaltiC1) > (r.Gol_2D+r.PenaltiD2)) {
+    if ((r.gol_1C+r.penaltiC1) > (r.gol_2D+r.penaltiD2)) {
         class_oitavas.push(classificacaoC[0].name)
     } else {
         class_oitavas.push(classificacaoD[1].name)
@@ -276,28 +276,28 @@ export function Simulacao() {
 
     // 2C X 1D 
     function Oitavas4() {    
-        if (r.Gol_2C != r.Gol_1D) {
+        if (r.gol_2C != r.gol_1D) {
             return (
                 <table>
                     <tr>
                         <td align="right">{classificacaoC[1].name}</td>
-                        <td align="center">{r.Gol_2C}x{r.Gol_1D}</td>
+                        <td align="center">{r.gol_2C}x{r.gol_1D}</td>
                         <td align="left">{classificacaoD[0].name}</td>
                     </tr>
                 </table>
         )
-    } else if (r.Gol_2C === r.Gol_1D) {
+    } else if (r.gol_2C === r.gol_1D) {
         return (
             <table>
                 <tr>
                     <td align="right">{classificacaoC[1].name}</td>
-                    <td align="center">{r.Gol_2C} ({r.PenaltiC2}) x ({r.PenaltiD1}) {r.Gol_1D}</td>
+                    <td align="center">{r.gol_2C} ({r.penaltiC2}) x ({r.penaltiD1}) {r.gol_1D}</td>
                     <td align="left">{classificacaoD[0].name}</td>
                 </tr>
             </table>
         )}
     }
-    if ((r.Gol_2C+r.PenaltiC2) > (r.Gol_1D+r.PenaltiD1)) {
+    if ((r.gol_2C+r.penaltiC2) > (r.gol_1D+r.penaltiD1)) {
         class_oitavas.push(classificacaoC[1].name)
     } else {
         class_oitavas.push(classificacaoD[0].name)
@@ -305,28 +305,28 @@ export function Simulacao() {
 
     // 1E X 2F 
     function Oitavas5() {    
-        if (r.Gol_1E != r.Gol_2F) {
+        if (r.gol_1E != r.gol_2F) {
             return (
                 <table>
                     <tr>
                         <td align="right">{classificacaoE[0].name}</td>
-                        <td align="center">{r.Gol_1E}x{r.Gol_2F}</td>
+                        <td align="center">{r.gol_1E}x{r.gol_2F}</td>
                         <td align="left">{classificacaoF[1].name}</td>
                     </tr>
                 </table>
         )
-    } else if (r.Gol_1E === r.Gol_2F) {
+    } else if (r.gol_1E === r.gol_2F) {
         return (
             <table>
                 <tr>
                     <td align="right">{classificacaoE[0].name}</td>
-                    <td align="center">{r.Gol_1E} ({r.PenaltiE1}) x ({r.PenaltiF2}) {r.Gol_2F}</td>
+                    <td align="center">{r.gol_1E} ({r.penaltiE1}) x ({r.penaltiF2}) {r.gol_2F}</td>
                     <td align="left">{classificacaoF[1].name}</td>
                 </tr>
             </table>
         )}
     }
-    if ((r.Gol_1E+r.PenaltiE1) > (r.Gol_2F+r.PenaltiF2)) {
+    if ((r.gol_1E+r.penaltiE1) > (r.gol_2F+r.penaltiF2)) {
         class_oitavas.push(classificacaoE[0].name)
     } else {
         class_oitavas.push(classificacaoF[1].name)
@@ -334,28 +334,28 @@ export function Simulacao() {
 
     // 2E X 1F 
     function Oitavas6() {    
-        if (r.Gol_2E != r.Gol_1F) {
+        if (r.gol_2E != r.gol_1F) {
             return (
                 <table>
                     <tr>
                         <td align="right">{classificacaoE[1].name}</td>
-                        <td align="center">{r.Gol_2E}x{r.Gol_1F}</td>
+                        <td align="center">{r.gol_2E}x{r.gol_1F}</td>
                         <td align="left">{classificacaoF[0].name}</td>
                     </tr>
                 </table>
         )
-    } else if (r.Gol_2E === r.Gol_1F) {
+    } else if (r.gol_2E === r.gol_1F) {
         return (
             <table>
                 <tr>
                     <td align="right">{classificacaoE[1].name}</td>
-                    <td align="center">{r.Gol_2E} ({r.PenaltiE2}) x ({r.PenaltiF1}) {r.Gol_1F}</td>
+                    <td align="center">{r.gol_2E} ({r.penaltiE2}) x ({r.penaltiF1}) {r.gol_1F}</td>
                     <td align="left">{classificacaoF[0].name}</td>
                 </tr>
             </table>
         )}
     }
-    if ((r.Gol_2E+r.PenaltiE2) > (r.Gol_1F+r.PenaltiF1)) {
+    if ((r.gol_2E+r.penaltiE2) > (r.gol_1F+r.penaltiF1)) {
         class_oitavas.push(classificacaoE[1].name)
     } else {
         class_oitavas.push(classificacaoF[0].name)
@@ -363,28 +363,28 @@ export function Simulacao() {
 
     // 1G X 2H
     function Oitavas7() {    
-        if (r.Gol_1G != r.Gol_2H) {
+        if (r.gol_1G != r.gol_2H) {
             return (
                 <table>
                     <tr>
                         <td align="right">{classificacaoG[0].name}</td>
-                        <td align="center">{r.Gol_1G}x{r.Gol_2H}</td>
+                        <td align="center">{r.gol_1G}x{r.gol_2H}</td>
                         <td align="left">{classificacaoH[1].name}</td>
                     </tr>
                 </table>
         )
-    } else if (r.Gol_1G === r.Gol_2H) {
+    } else if (r.gol_1G === r.gol_2H) {
         return (
             <table>
                 <tr>
                     <td align="right">{classificacaoG[0].name}</td>
-                    <td align="center">{r.Gol_1G} ({r.PenaltiG1}) x ({r.PenaltiH2}) {r.Gol_2H}</td>
+                    <td align="center">{r.gol_1G} ({r.penaltiG1}) x ({r.penaltiH2}) {r.gol_2H}</td>
                     <td align="left">{classificacaoH[1].name}</td>
                 </tr>
             </table>
         )}
     }
-    if ((r.Gol_1G+r.PenaltiG1) > (r.Gol_2H+r.PenaltiH2)) {
+    if ((r.gol_1G+r.penaltiG1) > (r.gol_2H+r.penaltiH2)) {
         class_oitavas.push(classificacaoG[0].name)
     } else {
         class_oitavas.push(classificacaoH[1].name)
@@ -392,28 +392,28 @@ export function Simulacao() {
 
     // 2G X 1H
     function Oitavas8() {    
-        if (r.Gol_2G != r.Gol_1H) {
+        if (r.gol_2G != r.gol_1H) {
             return (
                 <table>
                     <tr>
                         <td align="right">{classificacaoG[1].name}</td>
-                        <td align="center">{r.Gol_2G}x{r.Gol_1H}</td>
+                        <td align="center">{r.gol_2G}x{r.gol_1H}</td>
                         <td align="left">{classificacaoH[0].name}</td>
                     </tr>
                 </table>
         )
-    } else if (r.Gol_2G === r.Gol_1H) {
+    } else if (r.gol_2G === r.gol_1H) {
         return (
             <table>
                 <tr>
                     <td align="right">{classificacaoG[1].name}</td>
-                    <td align="center">{r.Gol_2G} ({r.PenaltiG2}) x ({r.PenaltiH1}) {r.Gol_1H}</td>
+                    <td align="center">{r.gol_2G} ({r.penaltiG2}) x ({r.penaltiH1}) {r.gol_1H}</td>
                     <td align="left">{classificacaoH[0].name}</td>
                 </tr>
             </table>
         )}
     }
-    if ((r.Gol_2G+r.PenaltiG2) > (r.Gol_1H+r.PenaltiH1)) {
+    if ((r.gol_2G+r.penaltiG2) > (r.gol_1H+r.penaltiH1)) {
         class_oitavas.push(classificacaoG[1].name)
     } else {
         class_oitavas.push(classificacaoH[0].name)
@@ -421,97 +421,212 @@ export function Simulacao() {
 
 
     // Quartas de final:
+    let class_quartas = []
     function Quartas1() {    
-        if (r.Gol_O11 != r.Gol_O12) {
+        if (r.gol_O11 != r.gol_O12) {
             return (
                 <table>
                     <tr>
                         <td align="right">{class_oitavas[0]}</td>
-                        <td align="center">{r.Gol_O11}x{r.Gol_O12}</td>
+                        <td align="center">{r.gol_O11}x{r.gol_O12}</td>
                         <td align="left">{class_oitavas[2]}</td>
                     </tr>
                 </table>
         )
-    } else if (r.Gol_O11 === r.Gol_O12) {
+    } else if (r.gol_O11 === r.gol_O12) {
         return (
             <table>
                 <tr>
                     <td align="right">{class_oitavas[0]}</td>
-                    <td align="center">{r.Gol_O11} ({r.PenaltiO11}) x ({r.PenaltiO12}) {r.Gol_O12}</td>
-                    <td align="left">{class_oitavas[0]}</td>
+                    <td align="center">{r.gol_O11} ({r.penaltiO11}) x ({r.penaltiO12}) {r.gol_O12}</td>
+                    <td align="left">{class_oitavas[2]}</td>
                 </tr>
             </table>
         )}
     }
+    if ((r.gol_O11 + r.penaltiO11) > (r.gol_O12 + r.penaltiO12)) {
+        class_quartas.push(class_oitavas[0])
+    } else { class_quartas.push(class_oitavas[2]) }
 
     function Quartas2() {    
-        if (r.Gol_O21 != r.Gol_O22) {
+        if (r.gol_O21 != r.gol_O22) {
             return (
                 <table>
                     <tr>
                         <td align="right">{class_oitavas[1]}</td>
-                        <td align="center">{r.Gol_O21}x{r.Gol_O22}</td>
+                        <td align="center">{r.gol_O21}x{r.gol_O22}</td>
                         <td align="left">{class_oitavas[3]}</td>
                     </tr>
                 </table>
         )
-    } else if (r.Gol_O21 === r.Gol_O22) {
+    } else if (r.gol_O21 === r.gol_O22) {
         return (
             <table>
                 <tr>
                     <td align="right">{class_oitavas[1]}</td>
-                    <td align="center">{r.Gol_O21} ({r.PenaltiO21}) x ({r.PenaltiO22}) {r.Gol_O21}</td>
+                    <td align="center">{r.gol_O21} ({r.penaltiO21}) x ({r.penaltiO22}) {r.gol_O21}</td>
                     <td align="left">{class_oitavas[3]}</td>
                 </tr>
             </table>
         )}
     }
+    if ((r.gol_O21 + r.penaltiO21) > (r.gol_O22 + r.penaltiO22)) {
+        class_quartas.push(class_oitavas[1])
+    } else { class_quartas.push(class_oitavas[3]) }
 
     function Quartas3() {    
-        if (r.Gol_O31 != r.Gol_O32) {
+        if (r.gol_O31 != r.gol_O32) {
             return (
                 <table>
                     <tr>
                         <td align="right">{class_oitavas[4]}</td>
-                        <td align="center">{r.Gol_O31}x{r.Gol_O32}</td>
+                        <td align="center">{r.gol_O31}x{r.gol_O32}</td>
                         <td align="left">{class_oitavas[6]}</td>
                     </tr>
                 </table>
         )
-    } else if (r.Gol_O31 === r.Gol_O32) {
+    } else if (r.gol_O31 === r.gol_O32) {
         return (
             <table>
                 <tr>
                     <td align="right">{class_oitavas[4]}</td>
-                    <td align="center">{r.Gol_O31} ({r.PenaltiO31}) x ({r.PenaltiO32}) {r.Gol_O31}</td>
+                    <td align="center">{r.gol_O31} ({r.penaltiO31}) x ({r.penaltiO32}) {r.gol_O31}</td>
                     <td align="left">{class_oitavas[6]}</td>
                 </tr>
             </table>
         )}
     }
+    if ((r.gol_O31 + r.penaltiO31) > (r.gol_O32 + r.penaltiO32)) {
+        class_quartas.push(class_oitavas[4])
+    } else { class_quartas.push(class_oitavas[6]) }
 
     function Quartas4() {    
-        if (r.Gol_O41 != r.Gol_O42) {
+        if (r.gol_O41 != r.gol_O42) {
             return (
                 <table>
                     <tr>
                         <td align="right">{class_oitavas[5]}</td>
-                        <td align="center">{r.Gol_O41}x{r.Gol_O42}</td>
+                        <td align="center">{r.gol_O41}x{r.gol_O42}</td>
                         <td align="left">{class_oitavas[7]}</td>
                     </tr>
                 </table>
         )
-    } else if (r.Gol_O41 === r.Gol_O42) {
+    } else if (r.gol_O41 === r.gol_O42) {
         return (
             <table>
                 <tr>
                     <td align="right">{class_oitavas[5]}</td>
-                    <td align="center">{r.Gol_O41} ({r.PenaltiO41}) x ({r.PenaltiO42}) {r.Gol_O41}</td>
+                    <td align="center">{r.gol_O41} ({r.penaltiO41}) x ({r.penaltiO42}) {r.gol_O41}</td>
                     <td align="left">{class_oitavas[7]}</td>
                 </tr>
             </table>
         )}
     }
+    if ((r.gol_O41 + r.penaltiO41) > (r.gol_O42 + r.penaltiO42)) {
+        class_quartas.push(class_oitavas[5])
+    } else { class_quartas.push(class_oitavas[7]) }
+
+    // Semi-final:
+    let class_semi = []
+    function Semi1() {    
+        if (r.gol_S11 != r.gol_S12) {
+            return (
+                <table>
+                    <tr>
+                        <td align="right">{class_quartas[0]}</td>
+                        <td align="center">{r.gol_S11}x{r.gol_S12}</td>
+                        <td align="left">{class_quartas[2]}</td>
+                    </tr>
+                </table>
+        )
+    } else if (r.gol_S11 === r.gol_S12) {
+        return (
+            <table>
+                <tr>
+                    <td align="right">{class_quartas[1]}</td>
+                    <td align="center">{r.gol_S11} ({r.penaltiS11}) x ({r.penaltiS12}) {r.gol_S12}</td>
+                    <td align="left">{class_quartas[3]}</td>
+                </tr>
+            </table>
+        )}
+    }
+    if ((r.gol_S11 + r.penaltiS11) > (r.gol_S12 + r.penaltiS12)) {
+        class_semi.push(class_quartas[0])
+    } else { class_semi.push(class_quartas[2]) }
+
+    function Semi2() {    
+        if (r.gol_S21 != r.gol_S22) {
+            return (
+                <table>
+                    <tr>
+                        <td align="right">{class_quartas[1]}</td>
+                        <td align="center">{r.gol_S21}x{r.gol_S22}</td>
+                        <td align="left">{class_quartas[3]}</td>
+                    </tr>
+                </table>
+        )
+    } else if (r.gol_S21 === r.gol_S22) {
+        return (
+            <table>
+                <tr>
+                    <td align="right">{class_quartas[1]}</td>
+                    <td align="center">{r.gol_S21} ({r.penaltiS21}) x ({r.penaltiS22}) {r.gol_S21}</td>
+                    <td align="left">{class_quartas[3]}</td>
+                </tr>
+            </table>
+        )}
+    }
+    if ((r.gol_S21 + r.penaltiS21) > (r.gol_S22 + r.penaltiS22)) {
+        class_semi.push(class_quartas[1])
+    } else { class_semi.push(class_quartas[3]) }
+
+    //Grande Final:
+    let campeao = []
+    function Final() {    
+        if (r.golsA != r.golsB) {
+            return (
+                <table>
+                    <tr>
+                        <td align="right">{class_semi[0]}</td>
+                        <td align="center">{r.golsA}x{r.golsB}</td>
+                        <td align="left">{class_semi[1]}</td>
+                    </tr>
+                </table>
+        )
+    } else if (r.golsA === r.golsB) {
+        return (
+            <table>
+                <tr>
+                    <td align="right">{class_semi[0]}</td>
+                    <td align="center">{r.golsA} ({r.penaltisA}) x ({r.penaltisB}) {r.golsB}</td>
+                    <td align="left">{class_semi[1]}</td>
+                </tr>
+            </table>
+        )}
+    }
+    if ((r.golsA + r.penaltisA) > (r.golsB + r.penaltisB)) {
+        campeao.push(class_semi[0])
+    } else { campeao.push(class_semi[1]) }
+
+
+    // Envio para api:
+
+    const envioAPI = [
+        {
+            "equipeA": class_semi[0],
+            "equipeB": class_semi[1],
+            "golsEquipeA": r.golsA,
+            "golsEquipeB": r.golsB,
+            "golsPenaltyTimeA":r.penaltisA,
+            "golsPenaltyTimeB": r.penaltisB,
+        }
+    ]
+
+    axios.post('https://estagio.geopostenergy.com/WorldCup/InsertFinalResult', envioAPI, {
+        headers: {
+            'git-user': 'theossalmeida'
+        }
+    })
 
     return (
         <Fragment>
@@ -957,7 +1072,7 @@ export function Simulacao() {
                 <p>* SG = Saldo de Gols</p>
                 </div>
                 <div class="mata-mata">
-                    <a class="titulo">Oitavas de Final</a>
+                    <div class="titulo">Oitavas de Final</div>
                     <table class="eliminatorias">
                         <td>{Oitavas1()}</td>
                         <td>{Oitavas3()}</td>
@@ -976,7 +1091,7 @@ export function Simulacao() {
                     </table>
                 </div>
                 <div class="mata-mata">
-                    <a class="titulo">Quartas de Final</a>
+                    <div class="titulo">Quartas de Final</div>
                     <table class="eliminatorias">
                         <td>{Quartas1()}</td>
                         <td>{Quartas2()}</td>                   
@@ -985,6 +1100,28 @@ export function Simulacao() {
                         <td>{Quartas3()}</td>
                         <td>{Quartas4()}</td>                   
                     </table>
+                </div>
+                <div class="mata-mata">
+                    <div class="titulo">Semi-final</div>
+                    <table class="eliminatorias">
+                        <td>{Semi1()}</td>                
+                    </table>
+                    <table class="eliminatorias">
+                        <td>{Semi2()}</td>                 
+                    </table>
+                </div>
+                <div class="final">
+                    <div class="titulo-final">Grande Final</div>
+                    <table class="tabela-final">
+                        <td>{Final()}</td>                
+                    </table>
+                </div>
+                <div class="campeao">
+                    <p>
+                        O grande campeão da Copa do Mundo será:
+                    </p>
+                    <img class="bandeira-campeao" src={`../imgs/${campeao[0]}.png`} />
+                    <p>{campeao[0]}</p>
                 </div>
         </Fragment>
     )
