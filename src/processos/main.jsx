@@ -543,9 +543,9 @@ export function Simulacao() {
         return (
             <table>
                 <tr>
-                    <td align="right">{class_quartas[1]}</td>
+                    <td align="right">{class_quartas[0]}</td>
                     <td align="center">{r.gol_S11} ({r.penaltiS11}) x ({r.penaltiS12}) {r.gol_S12}</td>
-                    <td align="left">{class_quartas[3]}</td>
+                    <td align="left">{class_quartas[2]}</td>
                 </tr>
             </table>
         )}
