@@ -1,9 +1,11 @@
 import axios from "axios"
-import { Component, Fragment, useEffect, useState } from "react"
+import { Fragment, useEffect, useState } from "react"
 import { Grupos } from "./components/comp_Grupos";
 import { Rodadas } from "./components/comp_Rodadas";
 import { ClassGrupos } from "./components/comp_ClassGrupos";
-import { Oitavas } from "./components/comp_oitavas";
+import { Oitavas } from "./components/mata-mata/comp_oitavas";
+import { Quartas } from "./components/mata-mata/comp_quartas";
+import { Semi } from "./components/mata-mata/comp_semi";
 import * as r from "./gols"
 import * as c from "./pontuacao"
 
@@ -867,26 +869,16 @@ export function Simulacao() {
                 chave7={Oitavas7()}
                 chave8={Oitavas8()}
             />
-            <div class="mata-mata">
-                <div class="titulo">Quartas de Final</div>
-                <table class="eliminatorias">
-                    <td>{Quartas1()}</td>
-                    <td>{Quartas2()}</td>
-                </table>
-                <table class="eliminatorias">
-                    <td>{Quartas3()}</td>
-                    <td>{Quartas4()}</td>
-                </table>
-            </div>
-            <div class="mata-mata">
-                <div class="titulo">Semi-final</div>
-                <table class="eliminatorias">
-                    <td>{Semi1()}</td>
-                </table>
-                <table class="eliminatorias">
-                    <td>{Semi2()}</td>
-                </table>
-            </div>
+            <Quartas
+            chave1={Quartas1()}
+            chave2={Quartas2()}
+            chave3={Quartas3()}
+            chave4={Quartas4()}
+            />
+            <Semi 
+            chave1={Semi1()}
+            chave2={Semi2()}
+            />
             <div class="final">
                 <div class="titulo-final">Grande Final</div>
                 <table class="tabela-final">
