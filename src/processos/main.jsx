@@ -622,11 +622,23 @@ export function Simulacao() {
         }
     ]
 
-    axios.post('https://estagio.geopostenergy.com/WorldCup/InsertFinalResult', envioAPI, {
-        headers: {
-            'git-user': 'theossalmeida'
-        }
-    })
+    useEffect(() => {
+        axios.post('https://estagio.geopostenergy.com/WorldCup/InsertFinalResult',
+        {
+            "equipeA": class_semi[0],
+            "equipeB": class_semi[1],
+            "golsEquipeA": r.golsA,
+            "golsEquipeB": r.golsB,
+            "golsPenaltyTimeA":r.penaltisA,
+            "golsPenaltyTimeB": r.penaltisB,
+        },
+        {
+            headers: {
+                'git-user': 'theossalmeida'
+            }
+        });
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     return (
         <Fragment>
