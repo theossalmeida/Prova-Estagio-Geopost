@@ -1,6 +1,7 @@
 import axios from "axios"
-import { useEffect, useState } from "react"
-import * as r from "./rodadas"
+import { Component, Fragment, useEffect, useState } from "react"
+import * as r from "./gols"
+import * as c from "./pontuacao"
 
 export function Simulacao() {
     const [teams, setTeams] = useState([]);
@@ -36,7 +37,6 @@ export function Simulacao() {
         var y = Math.floor(Math.random()*((31-x)- 0 + 1)) + 0  
         if (x <= 3) {
             grupoA.push(lista[y])
-            console.log(grupoA, x)
         } else if (x > 3 && x <= 7) {
             grupoB.push(lista[y])
         } else if (x > 7 && x <= 11) {
@@ -56,8 +56,465 @@ export function Simulacao() {
         x += 1
     }
 
+    // classificacao dos grupos: 
+    let classificacaoA = [
+        {name: grupoA[0], pontos: c.pontosA1, sg: c.sg_A1},
+        {name: grupoA[1], pontos: c.pontosA2, sg: c.sg_A2},
+        {name: grupoA[2], pontos: c.pontosA3, sg: c.sg_A3},
+        {name: grupoA[3], pontos: c.pontosA4, sg: c.sg_A4},
+    ]
+    classificacaoA.sort(function (a,b) {
+        if (b.pontos != a.pontos) {    
+            return (b.pontos - a.pontos) 
+        } else if (b.sg != a.sg) {
+            return (b.sg - a.sg)
+        } else {
+            return (b.pontos - a.pontos)
+        }
+    })
+
+    let classificacaoB = [
+        {name: grupoB[0], pontos: c.pontosB1, sg: c.sg_B1},
+        {name: grupoB[1], pontos: c.pontosB2, sg: c.sg_B2},
+        {name: grupoB[2], pontos: c.pontosB3, sg: c.sg_B3},
+        {name: grupoB[3], pontos: c.pontosB4, sg: c.sg_B4},
+    ]
+    classificacaoB.sort(function (a,b) {
+        if (b.pontos != a.pontos) {    
+            return (b.pontos - a.pontos) 
+        } else if (b.sg != a.sg) {
+            return (b.sg - a.sg)
+        } else {
+            return (b.pontos - a.pontos)
+        }
+    })
+
+    let classificacaoC = [
+        {name: grupoC[0], pontos: c.pontosC1, sg: c.sg_C1},
+        {name: grupoC[1], pontos: c.pontosC2, sg: c.sg_C2},
+        {name: grupoC[2], pontos: c.pontosC3, sg: c.sg_C3},
+        {name: grupoC[3], pontos: c.pontosC4, sg: c.sg_C4},
+    ]
+    classificacaoC.sort(function (a,b) {
+        if (b.pontos != a.pontos) {    
+            return (b.pontos - a.pontos) 
+        } else if (b.sg != a.sg) {
+            return (b.sg - a.sg)
+        } else {
+            return (b.pontos - a.pontos)
+        }
+    })
+
+    let classificacaoD = [
+        {name: grupoD[0], pontos: c.pontosD1, sg: c.sg_D1},
+        {name: grupoD[1], pontos: c.pontosD2, sg: c.sg_D2},
+        {name: grupoD[2], pontos: c.pontosD3, sg: c.sg_D3},
+        {name: grupoD[3], pontos: c.pontosD4, sg: c.sg_D4},
+    ]
+    classificacaoD.sort(function (a,b) {
+        if (b.pontos != a.pontos) {    
+            return (b.pontos - a.pontos) 
+        } else if (b.sg != a.sg) {
+            return (b.sg - a.sg)
+        } else {
+            return (b.pontos - a.pontos)
+        }
+    })
+
+    let classificacaoE = [
+        {name: grupoE[0], pontos: c.pontosE1, sg: c.sg_E1},
+        {name: grupoE[1], pontos: c.pontosE2, sg: c.sg_E2},
+        {name: grupoE[2], pontos: c.pontosE3, sg: c.sg_E3},
+        {name: grupoE[3], pontos: c.pontosE4, sg: c.sg_E4},
+    ]
+    classificacaoE.sort(function (a,b) {
+        if (b.pontos != a.pontos) {    
+            return (b.pontos - a.pontos) 
+        } else if (b.sg != a.sg) {
+            return (b.sg - a.sg)
+        } else {
+            return (b.pontos - a.pontos)
+        }
+    })
+
+    let classificacaoF = [
+        {name: grupoF[0], pontos: c.pontosF1, sg: c.sg_F1},
+        {name: grupoF[1], pontos: c.pontosF2, sg: c.sg_F2},
+        {name: grupoF[2], pontos: c.pontosF3, sg: c.sg_F3},
+        {name: grupoF[3], pontos: c.pontosF4, sg: c.sg_F4},
+    ]
+    classificacaoF.sort(function (a,b) {
+        if (b.pontos != a.pontos) {    
+            return (b.pontos - a.pontos) 
+        } else if (b.sg != a.sg) {
+            return (b.sg - a.sg)
+        } else {
+            return (b.pontos - a.pontos)
+        }
+    })
+
+    let classificacaoG = [
+        {name: grupoG[0], pontos: c.pontosG1, sg: c.sg_G1},
+        {name: grupoG[1], pontos: c.pontosG2, sg: c.sg_G2},
+        {name: grupoG[2], pontos: c.pontosG3, sg: c.sg_G3},
+        {name: grupoG[3], pontos: c.pontosG4, sg: c.sg_G4},
+    ]
+    classificacaoG.sort(function (a,b) {
+        if (b.pontos != a.pontos) {    
+            return (b.pontos - a.pontos) 
+        } else if (b.sg != a.sg) {
+            return (b.sg - a.sg)
+        } else {
+            return (b.pontos - a.pontos)
+        }
+    })
+
+    let classificacaoH = [
+        {name: grupoH[0], pontos: c.pontosH1, sg: c.sg_H1},
+        {name: grupoH[1], pontos: c.pontosH2, sg: c.sg_H2},
+        {name: grupoH[2], pontos: c.pontosH3, sg: c.sg_H3},
+        {name: grupoH[3], pontos: c.pontosH4, sg: c.sg_H4},
+    ]
+    classificacaoH.sort(function (a,b) {
+        if (b.pontos != a.pontos) {    
+            return (b.pontos - a.pontos) 
+        } else if (b.sg != a.sg) {
+            return (b.sg - a.sg)
+        } else {
+            return (b.pontos - a.pontos)
+        }
+    })
+
+    //Fase de Mata-Mata (oitavas):
+    let class_oitavas = []
+    // 1A x 2B
+    function Oitavas1() {    
+        if (r.Gol_1A != r.Gol_2B) {
+            return (
+                <table>
+                    <tr>
+                        <td align="right">{classificacaoA[0].name}</td>
+                        <td align="center">{r.Gol_1A}x{r.Gol_2B}</td>
+                        <td align="left">{classificacaoB[1].name}</td>
+                    </tr>
+                </table>
+        )
+    } else if (r.Gol_1A === r.Gol_2B) {
+        return (
+            <table>
+                <tr>
+                    <td align="right">{classificacaoA[0].name}</td>
+                    <td align="center">{r.Gol_1A} ({r.PenaltiA1}) x ({r.PenaltiB2}) {r.Gol_2B}</td>
+                    <td align="left">{classificacaoB[1].name}</td>
+                </tr>
+            </table>
+        )}
+}
+    if ((r.Gol_1A+r.PenaltiA1) > (r.Gol_2B+r.PenaltiB2)) {
+        class_oitavas.push(classificacaoA[0].name)
+    } else {
+        class_oitavas.push(classificacaoB[1].name)
+    }
+
+    // 2B X 1A
+    function Oitavas2() {    
+    if (r.Gol_1B != r.Gol_2A) {
+        return (
+            <table>
+                <tr>
+                    <td align="right">{classificacaoA[1].name}</td>
+                    <td align="center">{r.Gol_2A}x{r.Gol_1B}</td>
+                    <td align="left">{classificacaoB[0].name}</td>
+                </tr>
+            </table>
+    )
+} else if (r.Gol_2A === r.Gol_1B) {
     return (
-        <div>
+        <table>
+            <tr>
+                <td align="right">{classificacaoA[1].name}</td>
+                <td align="center">{r.Gol_2A} ({r.PenaltiA2}) x ({r.PenaltiB1}) {r.Gol_1B}</td>
+                <td align="left">{classificacaoB[0].name}</td>
+            </tr>
+        </table>
+    )}
+}
+    if ((r.Gol_2B+r.PenaltiB2) > (r.Gol_2A+r.PenaltiA2)) {
+        class_oitavas.push(classificacaoB[0].name)
+    } else {
+        class_oitavas.push(classificacaoA[1].name)
+    }
+
+    // 1C X 2D 
+    function Oitavas3() {    
+        if (r.Gol_1C != r.Gol_2D) {
+            return (
+                <table>
+                    <tr>
+                        <td align="right">{classificacaoC[0].name}</td>
+                        <td align="center">{r.Gol_1C}x{r.Gol_2D}</td>
+                        <td align="left">{classificacaoD[1].name}</td>
+                    </tr>
+                </table>
+        )
+    } else if (r.Gol_1C === r.Gol_2D) {
+        return (
+            <table>
+                <tr>
+                    <td align="right">{classificacaoC[0].name}</td>
+                    <td align="center">{r.Gol_1C} ({r.PenaltiC1}) x ({r.PenaltiD2}) {r.Gol_2D}</td>
+                    <td align="left">{classificacaoD[1].name}</td>
+                </tr>
+            </table>
+        )}
+    }
+    if ((r.Gol_1C+r.PenaltiC1) > (r.Gol_2D+r.PenaltiD2)) {
+        class_oitavas.push(classificacaoC[0].name)
+    } else {
+        class_oitavas.push(classificacaoD[1].name)
+    }
+
+    // 2C X 1D 
+    function Oitavas4() {    
+        if (r.Gol_2C != r.Gol_1D) {
+            return (
+                <table>
+                    <tr>
+                        <td align="right">{classificacaoC[1].name}</td>
+                        <td align="center">{r.Gol_2C}x{r.Gol_1D}</td>
+                        <td align="left">{classificacaoD[0].name}</td>
+                    </tr>
+                </table>
+        )
+    } else if (r.Gol_2C === r.Gol_1D) {
+        return (
+            <table>
+                <tr>
+                    <td align="right">{classificacaoC[1].name}</td>
+                    <td align="center">{r.Gol_2C} ({r.PenaltiC2}) x ({r.PenaltiD1}) {r.Gol_1D}</td>
+                    <td align="left">{classificacaoD[0].name}</td>
+                </tr>
+            </table>
+        )}
+    }
+    if ((r.Gol_2C+r.PenaltiC2) > (r.Gol_1D+r.PenaltiD1)) {
+        class_oitavas.push(classificacaoC[1].name)
+    } else {
+        class_oitavas.push(classificacaoD[0].name)
+    }
+
+    // 1E X 2F 
+    function Oitavas5() {    
+        if (r.Gol_1E != r.Gol_2F) {
+            return (
+                <table>
+                    <tr>
+                        <td align="right">{classificacaoE[0].name}</td>
+                        <td align="center">{r.Gol_1E}x{r.Gol_2F}</td>
+                        <td align="left">{classificacaoF[1].name}</td>
+                    </tr>
+                </table>
+        )
+    } else if (r.Gol_1E === r.Gol_2F) {
+        return (
+            <table>
+                <tr>
+                    <td align="right">{classificacaoE[0].name}</td>
+                    <td align="center">{r.Gol_1E} ({r.PenaltiE1}) x ({r.PenaltiF2}) {r.Gol_2F}</td>
+                    <td align="left">{classificacaoF[1].name}</td>
+                </tr>
+            </table>
+        )}
+    }
+    if ((r.Gol_1E+r.PenaltiE1) > (r.Gol_2F+r.PenaltiF2)) {
+        class_oitavas.push(classificacaoE[0].name)
+    } else {
+        class_oitavas.push(classificacaoF[1].name)
+    }
+
+    // 2E X 1F 
+    function Oitavas6() {    
+        if (r.Gol_2E != r.Gol_1F) {
+            return (
+                <table>
+                    <tr>
+                        <td align="right">{classificacaoE[1].name}</td>
+                        <td align="center">{r.Gol_2E}x{r.Gol_1F}</td>
+                        <td align="left">{classificacaoF[0].name}</td>
+                    </tr>
+                </table>
+        )
+    } else if (r.Gol_2E === r.Gol_1F) {
+        return (
+            <table>
+                <tr>
+                    <td align="right">{classificacaoE[1].name}</td>
+                    <td align="center">{r.Gol_2E} ({r.PenaltiE2}) x ({r.PenaltiF1}) {r.Gol_1F}</td>
+                    <td align="left">{classificacaoF[0].name}</td>
+                </tr>
+            </table>
+        )}
+    }
+    if ((r.Gol_2E+r.PenaltiE2) > (r.Gol_1F+r.PenaltiF1)) {
+        class_oitavas.push(classificacaoE[1].name)
+    } else {
+        class_oitavas.push(classificacaoF[0].name)
+    }
+
+    // 1G X 2H
+    function Oitavas7() {    
+        if (r.Gol_1G != r.Gol_2H) {
+            return (
+                <table>
+                    <tr>
+                        <td align="right">{classificacaoG[0].name}</td>
+                        <td align="center">{r.Gol_1G}x{r.Gol_2H}</td>
+                        <td align="left">{classificacaoH[1].name}</td>
+                    </tr>
+                </table>
+        )
+    } else if (r.Gol_1G === r.Gol_2H) {
+        return (
+            <table>
+                <tr>
+                    <td align="right">{classificacaoG[0].name}</td>
+                    <td align="center">{r.Gol_1G} ({r.PenaltiG1}) x ({r.PenaltiH2}) {r.Gol_2H}</td>
+                    <td align="left">{classificacaoH[1].name}</td>
+                </tr>
+            </table>
+        )}
+    }
+    if ((r.Gol_1G+r.PenaltiG1) > (r.Gol_2H+r.PenaltiH2)) {
+        class_oitavas.push(classificacaoG[0].name)
+    } else {
+        class_oitavas.push(classificacaoH[1].name)
+    }
+
+    // 2G X 1H
+    function Oitavas8() {    
+        if (r.Gol_2G != r.Gol_1H) {
+            return (
+                <table>
+                    <tr>
+                        <td align="right">{classificacaoG[1].name}</td>
+                        <td align="center">{r.Gol_2G}x{r.Gol_1H}</td>
+                        <td align="left">{classificacaoH[0].name}</td>
+                    </tr>
+                </table>
+        )
+    } else if (r.Gol_2G === r.Gol_1H) {
+        return (
+            <table>
+                <tr>
+                    <td align="right">{classificacaoG[1].name}</td>
+                    <td align="center">{r.Gol_2G} ({r.PenaltiG2}) x ({r.PenaltiH1}) {r.Gol_1H}</td>
+                    <td align="left">{classificacaoH[0].name}</td>
+                </tr>
+            </table>
+        )}
+    }
+    if ((r.Gol_2G+r.PenaltiG2) > (r.Gol_1H+r.PenaltiH1)) {
+        class_oitavas.push(classificacaoG[1].name)
+    } else {
+        class_oitavas.push(classificacaoH[0].name)
+    }
+
+
+    // Quartas de final:
+    function Quartas1() {    
+        if (r.Gol_O11 != r.Gol_O12) {
+            return (
+                <table>
+                    <tr>
+                        <td align="right">{class_oitavas[0]}</td>
+                        <td align="center">{r.Gol_O11}x{r.Gol_O12}</td>
+                        <td align="left">{class_oitavas[2]}</td>
+                    </tr>
+                </table>
+        )
+    } else if (r.Gol_O11 === r.Gol_O12) {
+        return (
+            <table>
+                <tr>
+                    <td align="right">{class_oitavas[0]}</td>
+                    <td align="center">{r.Gol_O11} ({r.PenaltiO11}) x ({r.PenaltiO12}) {r.Gol_O12}</td>
+                    <td align="left">{class_oitavas[0]}</td>
+                </tr>
+            </table>
+        )}
+    }
+
+    function Quartas2() {    
+        if (r.Gol_O21 != r.Gol_O22) {
+            return (
+                <table>
+                    <tr>
+                        <td align="right">{class_oitavas[1]}</td>
+                        <td align="center">{r.Gol_O21}x{r.Gol_O22}</td>
+                        <td align="left">{class_oitavas[3]}</td>
+                    </tr>
+                </table>
+        )
+    } else if (r.Gol_O21 === r.Gol_O22) {
+        return (
+            <table>
+                <tr>
+                    <td align="right">{class_oitavas[1]}</td>
+                    <td align="center">{r.Gol_O21} ({r.PenaltiO21}) x ({r.PenaltiO22}) {r.Gol_O21}</td>
+                    <td align="left">{class_oitavas[3]}</td>
+                </tr>
+            </table>
+        )}
+    }
+
+    function Quartas3() {    
+        if (r.Gol_O31 != r.Gol_O32) {
+            return (
+                <table>
+                    <tr>
+                        <td align="right">{class_oitavas[4]}</td>
+                        <td align="center">{r.Gol_O31}x{r.Gol_O32}</td>
+                        <td align="left">{class_oitavas[6]}</td>
+                    </tr>
+                </table>
+        )
+    } else if (r.Gol_O31 === r.Gol_O32) {
+        return (
+            <table>
+                <tr>
+                    <td align="right">{class_oitavas[4]}</td>
+                    <td align="center">{r.Gol_O31} ({r.PenaltiO31}) x ({r.PenaltiO32}) {r.Gol_O31}</td>
+                    <td align="left">{class_oitavas[6]}</td>
+                </tr>
+            </table>
+        )}
+    }
+
+    function Quartas4() {    
+        if (r.Gol_O41 != r.Gol_O42) {
+            return (
+                <table>
+                    <tr>
+                        <td align="right">{class_oitavas[5]}</td>
+                        <td align="center">{r.Gol_O41}x{r.Gol_O42}</td>
+                        <td align="left">{class_oitavas[7]}</td>
+                    </tr>
+                </table>
+        )
+    } else if (r.Gol_O41 === r.Gol_O42) {
+        return (
+            <table>
+                <tr>
+                    <td align="right">{class_oitavas[5]}</td>
+                    <td align="center">{r.Gol_O41} ({r.PenaltiO41}) x ({r.PenaltiO42}) {r.Gol_O41}</td>
+                    <td align="left">{class_oitavas[7]}</td>
+                </tr>
+            </table>
+        )}
+    }
+
+    return (
+        <Fragment>
             <div class="faseDeGrupos">
                 <div class="titulo">Grupos sorteados: </div>
                 <table class="grupo">
@@ -120,6 +577,7 @@ export function Simulacao() {
                 </table>
             </div>
             <div class="resultadosGrupos">
+                <a class="titulo">Simulação das Rodadas</a>
                 <table class="rodadasGrupo">
                     <thead>
                         <th></th>
@@ -132,14 +590,14 @@ export function Simulacao() {
                             <td rowSpan={2}>
                                 <strong>Grupo A</strong>
                             </td>
-                            <td align="right" width={150}>{grupoA[0]}</td><td>{r.grupoAtime1r1} x {r.grupoAtime2r1}</td><td align="left" width={150}>{grupoA[1]}</td>
-                            <td align="right" width={150}>{grupoA[0]}</td><td>{r.grupoAtime1r2} x {r.grupoAtime3r2}</td><td align="left" width={150}>{grupoA[2]}</td>
-                            <td align="right" width={150}>{grupoA[0]}</td><td>{r.grupoAtime1r3} x {r.grupoAtime4r3}</td><td align="left" width={150}>{grupoA[3]}</td>
+                            <td align="right" width={150}>{grupoA[0]}</td><td>{r.gAt1r1} x {r.gAt2r1}</td><td align="left" width={150}>{grupoA[1]}</td>
+                            <td align="right" width={150}>{grupoA[0]}</td><td>{r.gAt1r2} x {r.gAt3r2}</td><td align="left" width={150}>{grupoA[2]}</td>
+                            <td align="right" width={150}>{grupoA[0]}</td><td>{r.gAt1r3} x {r.gAt4r3}</td><td align="left" width={150}>{grupoA[3]}</td>
                         </tr>
                         <tr>
-                            <td align="right">{grupoA[2]}</td><td>{r.grupoAtime3r1} x {r.grupoAtime4r1}</td><td align="left">{grupoA[3]}</td>
-                            <td align="right">{grupoA[1]}</td><td>{r.grupoAtime2r2} x {r.grupoAtime4r2}</td><td align="left">{grupoA[3]}</td>
-                            <td align="right">{grupoA[1]}</td><td>{r.grupoAtime2r3} x {r.grupoAtime3r3}</td><td align="left">{grupoA[2]}</td> 
+                            <td align="right">{grupoA[2]}</td><td>{r.gAt3r1} x {r.gAt4r1}</td><td align="left">{grupoA[3]}</td>
+                            <td align="right">{grupoA[1]}</td><td>{r.gAt2r2} x {r.gAt4r2}</td><td align="left">{grupoA[3]}</td>
+                            <td align="right">{grupoA[1]}</td><td>{r.gAt2r3} x {r.gAt3r3}</td><td align="left">{grupoA[2]}</td> 
                         </tr>
                         <tr>
                             <td colSpan={10}><hr></hr></td>
@@ -148,14 +606,14 @@ export function Simulacao() {
                             <td rowSpan={2}>
                                 <strong>Grupo B</strong>
                             </td>
-                            <td align="right">{grupoB[0]}</td><td>{r.grupoBtime1r1} x {r.grupoBtime2r1}</td><td align="left">{grupoB[1]}</td>
-                            <td align="right">{grupoB[0]}</td><td>{r.grupoBtime1r2} x {r.grupoBtime3r2}</td><td align="left">{grupoB[2]}</td> 
-                            <td align="right">{grupoB[0]}</td><td>{r.grupoBtime1r3} x {r.grupoBtime4r3}</td><td align="left">{grupoB[3]}</td>
+                            <td align="right">{grupoB[0]}</td><td>{r.gBt1r1} x {r.gBt2r1}</td><td align="left">{grupoB[1]}</td>
+                            <td align="right">{grupoB[0]}</td><td>{r.gBt1r2} x {r.gBt3r2}</td><td align="left">{grupoB[2]}</td> 
+                            <td align="right">{grupoB[0]}</td><td>{r.gBt1r3} x {r.gBt4r3}</td><td align="left">{grupoB[3]}</td>
                         </tr>
                         <tr>
-                            <td align="right">{grupoB[2]}</td><td>{r.grupoBtime3r1} x {r.grupoBtime4r1}</td><td align="left">{grupoB[3]}</td>
-                            <td align="right">{grupoB[1]}</td><td>{r.grupoBtime2r2} x {r.grupoBtime4r2}</td><td align="left">{grupoB[3]}</td>
-                            <td align="right">{grupoB[1]}</td><td>{r.grupoBtime2r3} x {r.grupoBtime3r3}</td><td align="left">{grupoB[2]}</td>
+                            <td align="right">{grupoB[2]}</td><td>{r.gBt3r1} x {r.gBt4r1}</td><td align="left">{grupoB[3]}</td>
+                            <td align="right">{grupoB[1]}</td><td>{r.gBt2r2} x {r.gBt4r2}</td><td align="left">{grupoB[3]}</td>
+                            <td align="right">{grupoB[1]}</td><td>{r.gBt2r3} x {r.gBt3r3}</td><td align="left">{grupoB[2]}</td>
                         </tr>
                         <tr>
                             <td colSpan={10}><hr></hr></td>
@@ -164,14 +622,14 @@ export function Simulacao() {
                             <td rowSpan={2}>
                                 <strong>Grupo C</strong>
                             </td>
-                            <td align="right">{grupoC[0]}</td><td>{r.grupoCtime1r1} x {r.grupoCtime2r1}</td><td align="left">{grupoC[1]}</td>
-                            <td align="right">{grupoC[0]}</td><td>{r.grupoCtime1r2} x {r.grupoCtime3r2}</td><td align="left">{grupoC[2]}</td>
-                            <td align="right">{grupoC[0]}</td><td>{r.grupoCtime1r3} x {r.grupoCtime4r3}</td><td align="left">{grupoC[3]}</td>
+                            <td align="right">{grupoC[0]}</td><td>{r.gCt1r1} x {r.gCt2r1}</td><td align="left">{grupoC[1]}</td>
+                            <td align="right">{grupoC[0]}</td><td>{r.gCt1r2} x {r.gCt3r2}</td><td align="left">{grupoC[2]}</td>
+                            <td align="right">{grupoC[0]}</td><td>{r.gCt1r3} x {r.gCt4r3}</td><td align="left">{grupoC[3]}</td>
                         </tr>
                         <tr>
-                            <td align="right">{grupoC[2]}</td><td>{r.grupoCtime3r1} x {r.grupoCtime4r1}</td><td align="left">{grupoC[3]}</td>
-                            <td align="right">{grupoC[1]}</td><td>{r.grupoCtime2r2} x {r.grupoCtime4r2}</td><td align="left">{grupoC[3]}</td>
-                            <td align="right">{grupoC[1]}</td><td>{r.grupoCtime2r3} x {r.grupoCtime3r3}</td><td align="left">{grupoC[2]}</td> 
+                            <td align="right">{grupoC[2]}</td><td>{r.gCt3r1} x {r.gCt4r1}</td><td align="left">{grupoC[3]}</td>
+                            <td align="right">{grupoC[1]}</td><td>{r.gCt2r2} x {r.gCt4r2}</td><td align="left">{grupoC[3]}</td>
+                            <td align="right">{grupoC[1]}</td><td>{r.gCt2r3} x {r.gCt3r3}</td><td align="left">{grupoC[2]}</td> 
                         </tr>
                         <tr>
                             <td colSpan={10}><hr></hr></td>
@@ -180,14 +638,14 @@ export function Simulacao() {
                             <td rowSpan={2}>
                                 <strong>Grupo D</strong>
                             </td>
-                            <td align="right">{grupoD[0]}</td><td>{r.grupoDtime1r1} x {r.grupoDtime2r1}</td><td align="left">{grupoD[1]}</td>
-                            <td align="right">{grupoD[0]}</td><td>{r.grupoDtime1r2} x {r.grupoDtime3r2}</td><td align="left">{grupoD[2]}</td>
-                            <td align="right">{grupoD[0]}</td><td>{r.grupoDtime1r3} x {r.grupoDtime4r3}</td><td align="left">{grupoD[3]}</td>
+                            <td align="right">{grupoD[0]}</td><td>{r.gDt1r1} x {r.gDt2r1}</td><td align="left">{grupoD[1]}</td>
+                            <td align="right">{grupoD[0]}</td><td>{r.gDt1r2} x {r.gDt3r2}</td><td align="left">{grupoD[2]}</td>
+                            <td align="right">{grupoD[0]}</td><td>{r.gDt1r3} x {r.gDt4r3}</td><td align="left">{grupoD[3]}</td>
                         </tr>
                         <tr>
-                            <td align="right">{grupoD[2]}</td><td>{r.grupoDtime3r1} x {r.grupoDtime4r1}</td><td align="left">{grupoD[3]}</td>
-                            <td align="right">{grupoD[1]}</td><td>{r.grupoDtime2r2} x {r.grupoDtime4r2}</td><td align="left">{grupoD[3]}</td>
-                            <td align="right">{grupoD[1]}</td><td>{r.grupoDtime2r3} x {r.grupoDtime3r3}</td><td align="left">{grupoD[2]}</td> 
+                            <td align="right">{grupoD[2]}</td><td>{r.gDt3r1} x {r.gDt4r1}</td><td align="left">{grupoD[3]}</td>
+                            <td align="right">{grupoD[1]}</td><td>{r.gDt2r2} x {r.gDt4r2}</td><td align="left">{grupoD[3]}</td>
+                            <td align="right">{grupoD[1]}</td><td>{r.gDt2r3} x {r.gDt3r3}</td><td align="left">{grupoD[2]}</td> 
                         </tr>
                         <tr>
                             <td colSpan={10}><hr></hr></td>
@@ -196,14 +654,14 @@ export function Simulacao() {
                             <td rowSpan={2}>
                                 <strong>Grupo E</strong>
                             </td>
-                            <td align="right">{grupoE[0]}</td><td>{r.grupoEtime1r1} x {r.grupoEtime2r1}</td><td align="left">{grupoE[1]}</td>
-                            <td align="right">{grupoE[0]}</td><td>{r.grupoEtime1r2} x {r.grupoEtime3r2}</td><td align="left">{grupoE[2]}</td>
-                            <td align="right">{grupoE[0]}</td><td>{r.grupoEtime1r3} x {r.grupoEtime4r3}</td><td align="left">{grupoE[3]}</td>
+                            <td align="right">{grupoE[0]}</td><td>{r.gEt1r1} x {r.gEt2r1}</td><td align="left">{grupoE[1]}</td>
+                            <td align="right">{grupoE[0]}</td><td>{r.gEt1r2} x {r.gEt3r2}</td><td align="left">{grupoE[2]}</td>
+                            <td align="right">{grupoE[0]}</td><td>{r.gEt1r3} x {r.gEt4r3}</td><td align="left">{grupoE[3]}</td>
                         </tr>
                         <tr>
-                            <td align="right">{grupoE[2]}</td><td>{r.grupoEtime3r1} x {r.grupoEtime4r1}</td><td align="left">{grupoE[3]}</td>
-                            <td align="right">{grupoE[1]}</td><td>{r.grupoEtime2r2} x {r.grupoEtime4r2}</td><td align="left">{grupoE[3]}</td>
-                            <td align="right">{grupoE[1]}</td><td>{r.grupoEtime2r3} x {r.grupoEtime3r3}</td><td align="left">{grupoE[2]}</td> 
+                            <td align="right">{grupoE[2]}</td><td>{r.gEt3r1} x {r.gEt4r1}</td><td align="left">{grupoE[3]}</td>
+                            <td align="right">{grupoE[1]}</td><td>{r.gEt2r2} x {r.gEt4r2}</td><td align="left">{grupoE[3]}</td>
+                            <td align="right">{grupoE[1]}</td><td>{r.gEt2r3} x {r.gEt3r3}</td><td align="left">{grupoE[2]}</td> 
                         </tr>
                         <tr>
                             <td colSpan={10}><hr></hr></td>
@@ -212,14 +670,14 @@ export function Simulacao() {
                             <td rowSpan={2}>
                                 <strong>Grupo F</strong>
                             </td>
-                            <td align="right">{grupoF[0]}</td><td>{r.grupoFtime1r1} x {r.grupoFtime2r1}</td><td align="left">{grupoF[1]}</td>
-                            <td align="right">{grupoF[0]}</td><td>{r.grupoFtime1r2} x {r.grupoFtime3r2}</td><td align="left">{grupoF[2]}</td>
-                            <td align="right">{grupoF[0]}</td><td>{r.grupoFtime1r3} x {r.grupoFtime4r3}</td><td align="left">{grupoF[3]}</td>
+                            <td align="right">{grupoF[0]}</td><td>{r.gFt1r1} x {r.gFt2r1}</td><td align="left">{grupoF[1]}</td>
+                            <td align="right">{grupoF[0]}</td><td>{r.gFt1r2} x {r.gFt3r2}</td><td align="left">{grupoF[2]}</td>
+                            <td align="right">{grupoF[0]}</td><td>{r.gFt1r3} x {r.gFt4r3}</td><td align="left">{grupoF[3]}</td>
                         </tr>
                         <tr>
-                            <td align="right">{grupoF[2]}</td><td>{r.grupoFtime3r1} x {r.grupoFtime4r1}</td><td align="left">{grupoF[3]}</td>
-                            <td align="right">{grupoF[1]}</td><td>{r.grupoFtime2r2} x {r.grupoFtime4r2}</td><td align="left">{grupoF[3]}</td>
-                            <td align="right">{grupoF[1]}</td><td>{r.grupoFtime2r3} x {r.grupoFtime3r3}</td><td align="left">{grupoF[2]}</td> 
+                            <td align="right">{grupoF[2]}</td><td>{r.gFt3r1} x {r.gFt4r1}</td><td align="left">{grupoF[3]}</td>
+                            <td align="right">{grupoF[1]}</td><td>{r.gFt2r2} x {r.gFt4r2}</td><td align="left">{grupoF[3]}</td>
+                            <td align="right">{grupoF[1]}</td><td>{r.gFt2r3} x {r.gFt3r3}</td><td align="left">{grupoF[2]}</td> 
                         </tr>
                         <tr>
                             <td colSpan={10}><hr></hr></td>
@@ -228,14 +686,14 @@ export function Simulacao() {
                             <td rowSpan={2}>
                                 <strong>Grupo G</strong>
                             </td>
-                            <td align="right">{grupoG[0]}</td><td>{r.grupoGtime1r1} x {r.grupoGtime2r1}</td><td align="left">{grupoG[1]}</td>
-                            <td align="right">{grupoG[0]}</td><td>{r.grupoGtime1r2} x {r.grupoGtime3r2}</td><td align="left">{grupoG[2]}</td>
-                            <td align="right">{grupoG[0]}</td><td>{r.grupoGtime1r3} x {r.grupoGtime4r3}</td><td align="left">{grupoG[3]}</td>
+                            <td align="right">{grupoG[0]}</td><td>{r.gGt1r1} x {r.gGt2r1}</td><td align="left">{grupoG[1]}</td>
+                            <td align="right">{grupoG[0]}</td><td>{r.gGt1r2} x {r.gGt3r2}</td><td align="left">{grupoG[2]}</td>
+                            <td align="right">{grupoG[0]}</td><td>{r.gGt1r3} x {r.gGt4r3}</td><td align="left">{grupoG[3]}</td>
                         </tr>
                         <tr>
-                            <td align="right">{grupoG[2]}</td><td>{r.grupoGtime3r1} x {r.grupoGtime4r1}</td><td align="left">{grupoG[3]}</td>
-                            <td align="right">{grupoG[1]}</td><td>{r.grupoGtime2r2} x {r.grupoGtime4r2}</td><td align="left">{grupoG[3]}</td>
-                            <td align="right">{grupoG[1]}</td><td>{r.grupoGtime2r3} x {r.grupoGtime3r3}</td><td align="left">{grupoG[2]}</td> 
+                            <td align="right">{grupoG[2]}</td><td>{r.gGt3r1} x {r.gGt4r1}</td><td align="left">{grupoG[3]}</td>
+                            <td align="right">{grupoG[1]}</td><td>{r.gGt2r2} x {r.gGt4r2}</td><td align="left">{grupoG[3]}</td>
+                            <td align="right">{grupoG[1]}</td><td>{r.gGt2r3} x {r.gGt3r3}</td><td align="left">{grupoG[2]}</td> 
                         </tr>
                         <tr>
                             <td colSpan={10}><hr></hr></td>
@@ -244,18 +702,290 @@ export function Simulacao() {
                             <td rowSpan={2}>
                                 <strong>Grupo H</strong>
                             </td>
-                            <td align="right">{grupoH[0]}</td><td>{r.grupoHtime1r1} x {r.grupoHtime2r1}</td><td align="left">{grupoH[1]}</td>
-                            <td align="right">{grupoH[0]}</td><td>{r.grupoHtime1r2} x {r.grupoHtime3r2}</td><td align="left">{grupoH[2]}</td>
-                            <td align="right">{grupoH[0]}</td><td>{r.grupoHtime1r3} x {r.grupoHtime4r3}</td><td align="left">{grupoH[3]}</td>
+                            <td align="right">{grupoH[0]}</td><td>{r.gHt1r1} x {r.gHt2r1}</td><td align="left">{grupoH[1]}</td>
+                            <td align="right">{grupoH[0]}</td><td>{r.gHt1r2} x {r.gHt3r2}</td><td align="left">{grupoH[2]}</td>
+                            <td align="right">{grupoH[0]}</td><td>{r.gHt1r3} x {r.gHt4r3}</td><td align="left">{grupoH[3]}</td>
                         </tr>
                         <tr>
-                            <td align="right">{grupoH[2]}</td><td>{r.grupoHtime3r1} x {r.grupoHtime4r1}</td><td align="left">{grupoC[3]}</td>
-                            <td align="right">{grupoH[1]}</td><td>{r.grupoHtime2r2} x {r.grupoHtime4r2}</td><td align="left">{grupoC[3]}</td>
-                            <td align="right">{grupoH[1]}</td><td>{r.grupoHtime2r3} x {r.grupoHtime3r3}</td><td align="left">{grupoC[2]}</td> 
+                            <td align="right">{grupoH[2]}</td><td>{r.gHt3r1} x {r.gHt4r1}</td><td align="left">{grupoC[3]}</td>
+                            <td align="right">{grupoH[1]}</td><td>{r.gHt2r2} x {r.gHt4r2}</td><td align="left">{grupoC[3]}</td>
+                            <td align="right">{grupoH[1]}</td><td>{r.gHt2r3} x {r.gHt3r3}</td><td align="left">{grupoC[2]}</td> 
                         </tr>
                     </tbody>    
                 </table>
             </div>
-        </div>
+                <div class="ClassificacaoDosGrupos"> 
+                <a class="titulo"><strong>Classificação dos Grupos</strong></a>
+                <div class="divClassGrupos">   
+                    <table id="grupo A" className="classGrupos">
+                        <thead>
+                            <th>Grupo A</th>
+                            <th>Pontos</th>
+                            <th>SG</th>
+                        </thead>
+                        <tbody>
+                            <tr class="classificados">
+                                <td>{classificacaoA[0].name}</td>
+                                <td>{classificacaoA[0].pontos}</td>
+                                <td>{classificacaoA[0].sg}</td>
+                            </tr>
+                            <tr class="classificados">
+                                <td>{classificacaoA[1].name}</td>
+                                <td>{classificacaoA[1].pontos}</td>
+                                <td>{classificacaoA[1].sg}</td>
+                            </tr>
+                            <tr>
+                                <td>{classificacaoA[2].name}</td>
+                                <td>{classificacaoA[2].pontos}</td>
+                                <td>{classificacaoA[2].sg}</td>
+                            </tr>
+                            <tr>
+                                <td>{classificacaoA[3].name}</td>
+                                <td>{classificacaoA[3].pontos}</td>
+                                <td>{classificacaoA[3].sg}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table id="grupo B" className="classGrupos">
+                        <thead>
+                            <th>Grupo B</th>
+                            <th>Pontos</th>
+                            <th>SG</th>
+                        </thead>
+                        <tbody>
+                            <tr class="classificados">
+                                <td>{classificacaoB[0].name}</td>
+                                <td>{classificacaoB[0].pontos}</td>
+                                <td>{classificacaoB[0].sg}</td>
+                            </tr>
+                            <tr class="classificados">
+                                <td>{classificacaoB[1].name}</td>
+                                <td>{classificacaoB[1].pontos}</td>
+                                <td>{classificacaoB[1].sg}</td>
+                            </tr>
+                            <tr>
+                                <td>{classificacaoB[2].name}</td>
+                                <td>{classificacaoB[2].pontos}</td>
+                                <td>{classificacaoB[2].sg}</td>
+                            </tr>
+                            <tr>
+                                <td>{classificacaoB[3].name}</td>
+                                <td>{classificacaoB[3].pontos}</td>
+                                <td>{classificacaoB[3].sg}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table id="grupo C" className="classGrupos">
+                        <thead>
+                            <th>Grupo C</th>
+                            <th>Pontos</th>
+                            <th>SG</th>
+                        </thead>
+                        <tbody>
+                            <tr class="classificados">
+                                <td>{classificacaoC[0].name}</td>
+                                <td>{classificacaoC[0].pontos}</td>
+                                <td>{classificacaoC[0].sg}</td>
+                            </tr>
+                            <tr class="classificados">
+                                <td>{classificacaoC[1].name}</td>
+                                <td>{classificacaoC[1].pontos}</td>
+                                <td>{classificacaoC[1].sg}</td>
+                            </tr>
+                            <tr>
+                                <td>{classificacaoC[2].name}</td>
+                                <td>{classificacaoC[2].pontos}</td>
+                                <td>{classificacaoC[2].sg}</td>
+                            </tr>
+                            <tr>
+                                <td>{classificacaoC[3].name}</td>
+                                <td>{classificacaoC[3].pontos}</td>
+                                <td>{classificacaoC[3].sg}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="divClassGrupos">   
+                    <table id="grupo D" className="classGrupos">
+                        <thead>
+                            <th>Grupo D</th>
+                            <th>Pontos</th>
+                            <th>SG</th>
+                        </thead>
+                        <tbody>
+                            <tr class="classificados">
+                                <td>{classificacaoD[0].name}</td>
+                                <td>{classificacaoD[0].pontos}</td>
+                                <td>{classificacaoD[0].sg}</td>
+                            </tr>
+                            <tr class="classificados">
+                                <td>{classificacaoD[1].name}</td>
+                                <td>{classificacaoD[1].pontos}</td>
+                                <td>{classificacaoD[1].sg}</td>
+                            </tr>
+                            <tr>
+                                <td>{classificacaoD[2].name}</td>
+                                <td>{classificacaoD[2].pontos}</td>
+                                <td>{classificacaoD[2].sg}</td>
+                            </tr>
+                            <tr>
+                                <td>{classificacaoD[3].name}</td>
+                                <td>{classificacaoD[3].pontos}</td>
+                                <td>{classificacaoD[3].sg}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table id="grupo E" className="classGrupos">
+                        <thead>
+                            <th>Grupo E</th>
+                            <th>Pontos</th>
+                            <th>SG</th>
+                        </thead>
+                        <tbody>
+                            <tr class="classificados">
+                                <td>{classificacaoE[0].name}</td>
+                                <td>{classificacaoE[0].pontos}</td>
+                                <td>{classificacaoE[0].sg}</td>
+                            </tr>
+                            <tr class="classificados">
+                                <td>{classificacaoE[1].name}</td>
+                                <td>{classificacaoE[1].pontos}</td>
+                                <td>{classificacaoE[1].sg}</td>
+                            </tr>
+                            <tr>
+                                <td>{classificacaoE[2].name}</td>
+                                <td>{classificacaoE[2].pontos}</td>
+                                <td>{classificacaoE[2].sg}</td>
+                            </tr>
+                            <tr>
+                                <td>{classificacaoE[3].name}</td>
+                                <td>{classificacaoE[3].pontos}</td>
+                                <td>{classificacaoE[3].sg}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table id="grupo F" className="classGrupos">
+                        <thead>
+                            <th>Grupo F</th>
+                            <th>Pontos</th>
+                            <th>SG</th>
+                        </thead>
+                        <tbody>
+                            <tr class="classificados">
+                                <td>{classificacaoF[0].name}</td>
+                                <td>{classificacaoF[0].pontos}</td>
+                                <td>{classificacaoF[0].sg}</td>
+                            </tr>
+                            <tr class="classificados">
+                                <td>{classificacaoF[1].name}</td>
+                                <td>{classificacaoF[1].pontos}</td>
+                                <td>{classificacaoF[1].sg}</td>
+                            </tr>
+                            <tr>
+                                <td>{classificacaoF[2].name}</td>
+                                <td>{classificacaoF[2].pontos}</td>
+                                <td>{classificacaoF[2].sg}</td>
+                            </tr>
+                            <tr>
+                                <td>{classificacaoF[3].name}</td>
+                                <td>{classificacaoF[3].pontos}</td>
+                                <td>{classificacaoF[3].sg}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="divClassGrupos">   
+                    <table id="grupo G" className="classGrupos">
+                        <thead>
+                            <th>Grupo G</th>
+                            <th>Pontos</th>
+                            <th>SG</th>
+                        </thead>
+                        <tbody>
+                            <tr class="classificados">
+                                <td>{classificacaoG[0].name}</td>
+                                <td>{classificacaoG[0].pontos}</td>
+                                <td>{classificacaoG[0].sg}</td>
+                            </tr>
+                            <tr class="classificados">
+                                <td>{classificacaoG[1].name}</td>
+                                <td>{classificacaoG[1].pontos}</td>
+                                <td>{classificacaoG[1].sg}</td>
+                            </tr>
+                            <tr>
+                                <td>{classificacaoG[2].name}</td>
+                                <td>{classificacaoG[2].pontos}</td>
+                                <td>{classificacaoG[2].sg}</td>
+                            </tr>
+                            <tr>
+                                <td>{classificacaoG[3].name}</td>
+                                <td>{classificacaoG[3].pontos}</td>
+                                <td>{classificacaoG[3].sg}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table id="grupo H" className="classGrupos">
+                        <thead>
+                            <th>Grupo H</th>
+                            <th>Pontos</th>
+                            <th>SG</th>
+                        </thead>
+                        <tbody>
+                            <tr class="classificados">
+                                <td>{classificacaoH[0].name}</td>
+                                <td>{classificacaoH[0].pontos}</td>
+                                <td>{classificacaoH[0].sg}</td>
+                            </tr>
+                            <tr class="classificados">
+                                <td>{classificacaoH[1].name}</td>
+                                <td>{classificacaoH[1].pontos}</td>
+                                <td>{classificacaoH[1].sg}</td>
+                            </tr>
+                            <tr>
+                                <td>{classificacaoH[2].name}</td>
+                                <td>{classificacaoH[2].pontos}</td>
+                                <td>{classificacaoH[2].sg}</td>
+                            </tr>
+                            <tr>
+                                <td>{classificacaoH[3].name}</td>
+                                <td>{classificacaoH[3].pontos}</td>
+                                <td>{classificacaoH[3].sg}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>* SG = Saldo de Gols</p>
+                </div>
+                <div class="mata-mata">
+                    <a class="titulo">Oitavas de Final</a>
+                    <table class="eliminatorias">
+                        <td>{Oitavas1()}</td>
+                        <td>{Oitavas3()}</td>
+                    </table>
+                    <table class="eliminatorias">
+                        <td>{Oitavas2()}</td>
+                        <td>{Oitavas4()}</td>
+                    </table>
+                    <table class="eliminatorias">
+                        <td>{Oitavas5()}</td>
+                        <td>{Oitavas7()}</td>
+                    </table>
+                    <table class="eliminatorias">
+                        <td>{Oitavas6()}</td>
+                        <td>{Oitavas8()}</td>                   
+                    </table>
+                </div>
+                <div class="mata-mata">
+                    <a class="titulo">Quartas de Final</a>
+                    <table class="eliminatorias">
+                        <td>{Quartas1()}</td>
+                        <td>{Quartas2()}</td>                   
+                    </table>
+                    <table class="eliminatorias">
+                        <td>{Quartas3()}</td>
+                        <td>{Quartas4()}</td>                   
+                    </table>
+                </div>
+        </Fragment>
     )
 }

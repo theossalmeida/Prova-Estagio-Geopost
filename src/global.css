@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:'Times New Roman', Times, serif;
     letter-spacing: 2px;
     background-color: rgb(73, 6, 55);
 }
@@ -28,7 +28,7 @@ body {
 .grupo {
     width: 100%;
     padding: 10px;
-    font-size:40px;
+    font-size:30px;
     color: white;
     text-align: left;
 }
@@ -45,6 +45,8 @@ body {
     color: white;
     text-align: center;
     justify-content: center;
+    background-image: url('../public/imgs/fundoRodadas.jpeg');
+    background-size: cover;
 }
 
 table.rodadasGrupo {
@@ -52,3 +54,60 @@ table.rodadasGrupo {
     width: 100%;
     justify-content: center;
 }
+
+table.classGrupos {
+    border: 1px solid white;
+}
+
+table.classGrupos td {
+    border-left: 1px solid white;
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+    width: 150px;
+}
+
+.divClassGrupos {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.ClassificacaoDosGrupos {
+    background-image: url('../public/imgs/fundoClassGrupos.webp');
+    background-size: cover;
+    padding-bottom: 5px;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+}
+
+.classificados {
+    background-color: green;
+}
+
+.mata-mata {
+    text-align: center;
+    justify-content: center;
+    background-image: url('../public/imgs/fundoMataMata.webp');
+    background-size: cover;
+}
+
+table.eliminatorias {
+    display: flex;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    border: 1px solid white;
+    justify-content: center;
+}
+
+table.eliminatorias tr {
+    border: 1px solid white;
+}
+
+table.eliminatorias tr td {
+    width: 200px;
+    height: auto;
+    justify-content: space-evenly;
+}
+
