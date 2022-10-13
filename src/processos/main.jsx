@@ -1,6 +1,7 @@
 import axios from "axios"
 import { Component, Fragment, useEffect, useState } from "react"
 import { Grupos } from "./components/comp_Grupos";
+import { Rodadas } from "./components/comp_Rodadas";
 import * as r from "./gols"
 import * as c from "./pontuacao"
 
@@ -714,131 +715,62 @@ export function Simulacao() {
                         <th colSpan={3}>Rodada 3</th>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td rowSpan={2}>
-                                <strong>Grupo A</strong>
-                            </td>
-                            <td align="right" width={150}>{grupoA[0]}</td><td>{r.gAt1r1} x {r.gAt2r1}</td><td align="left" width={150}>{grupoA[1]}</td>
-                            <td align="right" width={150}>{grupoA[0]}</td><td>{r.gAt1r2} x {r.gAt3r2}</td><td align="left" width={150}>{grupoA[2]}</td>
-                            <td align="right" width={150}>{grupoA[0]}</td><td>{r.gAt1r3} x {r.gAt4r3}</td><td align="left" width={150}>{grupoA[3]}</td>
-                        </tr>
-                        <tr>
-                            <td align="right">{grupoA[2]}</td><td>{r.gAt3r1} x {r.gAt4r1}</td><td align="left">{grupoA[3]}</td>
-                            <td align="right">{grupoA[1]}</td><td>{r.gAt2r2} x {r.gAt4r2}</td><td align="left">{grupoA[3]}</td>
-                            <td align="right">{grupoA[1]}</td><td>{r.gAt2r3} x {r.gAt3r3}</td><td align="left">{grupoA[2]}</td> 
-                        </tr>
-                        <tr>
-                            <td colSpan={10}><hr></hr></td>
-                        </tr>
-                        <tr>
-                            <td rowSpan={2}>
-                                <strong>Grupo B</strong>
-                            </td>
-                            <td align="right">{grupoB[0]}</td><td>{r.gBt1r1} x {r.gBt2r1}</td><td align="left">{grupoB[1]}</td>
-                            <td align="right">{grupoB[0]}</td><td>{r.gBt1r2} x {r.gBt3r2}</td><td align="left">{grupoB[2]}</td> 
-                            <td align="right">{grupoB[0]}</td><td>{r.gBt1r3} x {r.gBt4r3}</td><td align="left">{grupoB[3]}</td>
-                        </tr>
-                        <tr>
-                            <td align="right">{grupoB[2]}</td><td>{r.gBt3r1} x {r.gBt4r1}</td><td align="left">{grupoB[3]}</td>
-                            <td align="right">{grupoB[1]}</td><td>{r.gBt2r2} x {r.gBt4r2}</td><td align="left">{grupoB[3]}</td>
-                            <td align="right">{grupoB[1]}</td><td>{r.gBt2r3} x {r.gBt3r3}</td><td align="left">{grupoB[2]}</td>
-                        </tr>
-                        <tr>
-                            <td colSpan={10}><hr></hr></td>
-                        </tr>
-                        <tr>
-                            <td rowSpan={2}>
-                                <strong>Grupo C</strong>
-                            </td>
-                            <td align="right">{grupoC[0]}</td><td>{r.gCt1r1} x {r.gCt2r1}</td><td align="left">{grupoC[1]}</td>
-                            <td align="right">{grupoC[0]}</td><td>{r.gCt1r2} x {r.gCt3r2}</td><td align="left">{grupoC[2]}</td>
-                            <td align="right">{grupoC[0]}</td><td>{r.gCt1r3} x {r.gCt4r3}</td><td align="left">{grupoC[3]}</td>
-                        </tr>
-                        <tr>
-                            <td align="right">{grupoC[2]}</td><td>{r.gCt3r1} x {r.gCt4r1}</td><td align="left">{grupoC[3]}</td>
-                            <td align="right">{grupoC[1]}</td><td>{r.gCt2r2} x {r.gCt4r2}</td><td align="left">{grupoC[3]}</td>
-                            <td align="right">{grupoC[1]}</td><td>{r.gCt2r3} x {r.gCt3r3}</td><td align="left">{grupoC[2]}</td> 
-                        </tr>
-                        <tr>
-                            <td colSpan={10}><hr></hr></td>
-                        </tr>
-                        <tr>
-                            <td rowSpan={2}>
-                                <strong>Grupo D</strong>
-                            </td>
-                            <td align="right">{grupoD[0]}</td><td>{r.gDt1r1} x {r.gDt2r1}</td><td align="left">{grupoD[1]}</td>
-                            <td align="right">{grupoD[0]}</td><td>{r.gDt1r2} x {r.gDt3r2}</td><td align="left">{grupoD[2]}</td>
-                            <td align="right">{grupoD[0]}</td><td>{r.gDt1r3} x {r.gDt4r3}</td><td align="left">{grupoD[3]}</td>
-                        </tr>
-                        <tr>
-                            <td align="right">{grupoD[2]}</td><td>{r.gDt3r1} x {r.gDt4r1}</td><td align="left">{grupoD[3]}</td>
-                            <td align="right">{grupoD[1]}</td><td>{r.gDt2r2} x {r.gDt4r2}</td><td align="left">{grupoD[3]}</td>
-                            <td align="right">{grupoD[1]}</td><td>{r.gDt2r3} x {r.gDt3r3}</td><td align="left">{grupoD[2]}</td> 
-                        </tr>
-                        <tr>
-                            <td colSpan={10}><hr></hr></td>
-                        </tr>
-                        <tr>
-                            <td rowSpan={2}>
-                                <strong>Grupo E</strong>
-                            </td>
-                            <td align="right">{grupoE[0]}</td><td>{r.gEt1r1} x {r.gEt2r1}</td><td align="left">{grupoE[1]}</td>
-                            <td align="right">{grupoE[0]}</td><td>{r.gEt1r2} x {r.gEt3r2}</td><td align="left">{grupoE[2]}</td>
-                            <td align="right">{grupoE[0]}</td><td>{r.gEt1r3} x {r.gEt4r3}</td><td align="left">{grupoE[3]}</td>
-                        </tr>
-                        <tr>
-                            <td align="right">{grupoE[2]}</td><td>{r.gEt3r1} x {r.gEt4r1}</td><td align="left">{grupoE[3]}</td>
-                            <td align="right">{grupoE[1]}</td><td>{r.gEt2r2} x {r.gEt4r2}</td><td align="left">{grupoE[3]}</td>
-                            <td align="right">{grupoE[1]}</td><td>{r.gEt2r3} x {r.gEt3r3}</td><td align="left">{grupoE[2]}</td> 
-                        </tr>
-                        <tr>
-                            <td colSpan={10}><hr></hr></td>
-                        </tr>
-                        <tr>
-                            <td rowSpan={2}>
-                                <strong>Grupo F</strong>
-                            </td>
-                            <td align="right">{grupoF[0]}</td><td>{r.gFt1r1} x {r.gFt2r1}</td><td align="left">{grupoF[1]}</td>
-                            <td align="right">{grupoF[0]}</td><td>{r.gFt1r2} x {r.gFt3r2}</td><td align="left">{grupoF[2]}</td>
-                            <td align="right">{grupoF[0]}</td><td>{r.gFt1r3} x {r.gFt4r3}</td><td align="left">{grupoF[3]}</td>
-                        </tr>
-                        <tr>
-                            <td align="right">{grupoF[2]}</td><td>{r.gFt3r1} x {r.gFt4r1}</td><td align="left">{grupoF[3]}</td>
-                            <td align="right">{grupoF[1]}</td><td>{r.gFt2r2} x {r.gFt4r2}</td><td align="left">{grupoF[3]}</td>
-                            <td align="right">{grupoF[1]}</td><td>{r.gFt2r3} x {r.gFt3r3}</td><td align="left">{grupoF[2]}</td> 
-                        </tr>
-                        <tr>
-                            <td colSpan={10}><hr></hr></td>
-                        </tr>
-                        <tr>
-                            <td rowSpan={2}>
-                                <strong>Grupo G</strong>
-                            </td>
-                            <td align="right">{grupoG[0]}</td><td>{r.gGt1r1} x {r.gGt2r1}</td><td align="left">{grupoG[1]}</td>
-                            <td align="right">{grupoG[0]}</td><td>{r.gGt1r2} x {r.gGt3r2}</td><td align="left">{grupoG[2]}</td>
-                            <td align="right">{grupoG[0]}</td><td>{r.gGt1r3} x {r.gGt4r3}</td><td align="left">{grupoG[3]}</td>
-                        </tr>
-                        <tr>
-                            <td align="right">{grupoG[2]}</td><td>{r.gGt3r1} x {r.gGt4r1}</td><td align="left">{grupoG[3]}</td>
-                            <td align="right">{grupoG[1]}</td><td>{r.gGt2r2} x {r.gGt4r2}</td><td align="left">{grupoG[3]}</td>
-                            <td align="right">{grupoG[1]}</td><td>{r.gGt2r3} x {r.gGt3r3}</td><td align="left">{grupoG[2]}</td> 
-                        </tr>
-                        <tr>
-                            <td colSpan={10}><hr></hr></td>
-                        </tr>
-                        <tr>
-                            <td rowSpan={2}>
-                                <strong>Grupo H</strong>
-                            </td>
-                            <td align="right">{grupoH[0]}</td><td>{r.gHt1r1} x {r.gHt2r1}</td><td align="left">{grupoH[1]}</td>
-                            <td align="right">{grupoH[0]}</td><td>{r.gHt1r2} x {r.gHt3r2}</td><td align="left">{grupoH[2]}</td>
-                            <td align="right">{grupoH[0]}</td><td>{r.gHt1r3} x {r.gHt4r3}</td><td align="left">{grupoH[3]}</td>
-                        </tr>
-                        <tr>
-                            <td align="right">{grupoH[2]}</td><td>{r.gHt3r1} x {r.gHt4r1}</td><td align="left">{grupoC[3]}</td>
-                            <td align="right">{grupoH[1]}</td><td>{r.gHt2r2} x {r.gHt4r2}</td><td align="left">{grupoC[3]}</td>
-                            <td align="right">{grupoH[1]}</td><td>{r.gHt2r3} x {r.gHt3r3}</td><td align="left">{grupoC[2]}</td> 
-                        </tr>
+                        <Rodadas 
+                        grupo="Grupo A"
+                        time1={grupoA[0]}
+                        time2={grupoA[1]}
+                        time3={grupoA[2]}
+                        time4={grupoA[3]}
+                        />
+                        <Rodadas 
+                        grupo="Grupo B"
+                        time1={grupoB[0]}
+                        time2={grupoB[1]}
+                        time3={grupoB[2]}
+                        time4={grupoB[3]}
+                        />
+                        <Rodadas 
+                        grupo="Grupo C"
+                        time1={grupoC[0]}
+                        time2={grupoC[1]}
+                        time3={grupoC[2]}
+                        time4={grupoC[3]}
+                        />
+                        <Rodadas 
+                        grupo="Grupo D"
+                        time1={grupoD[0]}
+                        time2={grupoD[1]}
+                        time3={grupoD[2]}
+                        time4={grupoD[3]}
+                        />
+                        <Rodadas 
+                        grupo="Grupo E"
+                        time1={grupoE[0]}
+                        time2={grupoE[1]}
+                        time3={grupoE[2]}
+                        time4={grupoE[3]}
+                        />
+                        <Rodadas 
+                        grupo="Grupo F"
+                        time1={grupoF[0]}
+                        time2={grupoF[1]}
+                        time3={grupoF[2]}
+                        time4={grupoF[3]}
+                        />
+                        <Rodadas 
+                        grupo="Grupo G"
+                        time1={grupoG[0]}
+                        time2={grupoG[1]}
+                        time3={grupoG[2]}
+                        time4={grupoG[3]}
+                        />
+                        <Rodadas 
+                        grupo="Grupo H"
+                        time1={grupoH[0]}
+                        time2={grupoH[1]}
+                        time3={grupoH[2]}
+                        time4={grupoH[3]}
+                        /> 
                     </tbody>    
                 </table>
             </div>
