@@ -3,9 +3,6 @@ import { Fragment, useEffect, useState } from "react"
 import { Grupos } from "./components/comp_Grupos";
 import { Rodadas } from "./components/comp_Rodadas";
 import { ClassGrupos } from "./components/comp_ClassGrupos";
-import { Oitavas } from "./components/mata-mata/comp_oitavas";
-import { Quartas } from "./components/mata-mata/comp_quartas";
-import { Semi } from "./components/mata-mata/comp_semi";
 import * as r from "./gols"
 import * as c from "./pontuacao"
 
@@ -194,411 +191,230 @@ export function Simulacao() {
     //Fase de Mata-Mata (oitavas):
     let class_oitavas = []
     // 1A x 2B
-    function Oitavas1() {
-        if (r.gol_1A != r.gol_2B) {
+    function Oitavas(time1, time2, golTime1, golTime2, penaltiTime1, penaltiTime2) {
+        if (golTime1 != golTime2) {
             return (
                 <table>
                     <tr>
-                        <td align="right">{classificacaoA[0].name}</td>
-                        <td align="center">{r.gol_1A}x{r.gol_2B}</td>
-                        <td align="left">{classificacaoB[1].name}</td>
+                        <td align="right">{time1.name}</td>
+                        <td align="center">{golTime1}x{golTime2}</td>
+                        <td align="left">{time2.name}</td>
                     </tr>
                 </table>
             )
-        } else if (r.gol_1A === r.gol_2B) {
+        } else if (golTime1 === golTime2) {
             return (
                 <table>
                     <tr>
-                        <td align="right">{classificacaoA[0].name}</td>
-                        <td align="center">{r.gol_1A} ({r.penaltiA1}) x ({r.penaltiB2}) {r.gol_2B}</td>
-                        <td align="left">{classificacaoB[1].name}</td>
+                        <td align="right">{time1.name}</td>
+                        <td align="center">{golTime1} ({penaltiTime1}) x ({penaltiTime2}) {golTime2}</td>
+                        <td align="left">{time2.name}</td>
                     </tr>
                 </table>
             )
         }
-    }
-    if ((r.gol_1A + r.penaltiA1) > (r.gol_2B + r.penaltiB2)) {
-        class_oitavas.push(classificacaoA[0].name)
-    } else {
-        class_oitavas.push(classificacaoB[1].name)
     }
 
-    // 2B X 1A
-    function Oitavas2() {
-        if (r.gol_1B != r.gol_2A) {
-            return (
-                <table>
-                    <tr>
-                        <td align="right">{classificacaoA[1].name}</td>
-                        <td align="center">{r.gol_2A}x{r.gol_1B}</td>
-                        <td align="left">{classificacaoB[0].name}</td>
-                    </tr>
-                </table>
-            )
-        } else if (r.gol_2A === r.gol_1B) {
-            return (
-                <table>
-                    <tr>
-                        <td align="right">{classificacaoA[1].name}</td>
-                        <td align="center">{r.gol_2A} ({r.penaltiA2}) x ({r.penaltiB1}) {r.gol_1B}</td>
-                        <td align="left">{classificacaoB[0].name}</td>
-                    </tr>
-                </table>
-            )
+    function PassaFase(time1, golTime1, penaltiTime1, time2, golTime2, penaltiTime2) {
+        if ((golTime1 + penaltiTime1) > (golTime2 + penaltiTime2)) {
+            class_oitavas.push(time1.name)
+        } else {
+            class_oitavas.push(time2.name)
         }
-    }
-    if ((r.gol_1B + r.penaltiB1) > (r.gol_2A + r.penaltiA2)) {
-        class_oitavas.push(classificacaoB[0].name)
-    } else {
-        class_oitavas.push(classificacaoA[1].name)
     }
 
-    // 1C X 2D 
-    function Oitavas3() {
-        if (r.gol_1C != r.gol_2D) {
-            return (
-                <table>
-                    <tr>
-                        <td align="right">{classificacaoC[0].name}</td>
-                        <td align="center">{r.gol_1C}x{r.gol_2D}</td>
-                        <td align="left">{classificacaoD[1].name}</td>
-                    </tr>
-                </table>
-            )
-        } else if (r.gol_1C === r.gol_2D) {
-            return (
-                <table>
-                    <tr>
-                        <td align="right">{classificacaoC[0].name}</td>
-                        <td align="center">{r.gol_1C} ({r.penaltiC1}) x ({r.penaltiD2}) {r.gol_2D}</td>
-                        <td align="left">{classificacaoD[1].name}</td>
-                    </tr>
-                </table>
-            )
-        }
-    }
-    if ((r.gol_1C + r.penaltiC1) > (r.gol_2D + r.penaltiD2)) {
-        class_oitavas.push(classificacaoC[0].name)
-    } else {
-        class_oitavas.push(classificacaoD[1].name)
-    }
+    PassaFase(
+        classificacaoA[0],
+        r.gol_1A,
+        r.penaltiA1,
+        classificacaoB[1],
+        r.gol_2B,
+        r.penaltiB2
+    )
 
-    // 2C X 1D 
-    function Oitavas4() {
-        if (r.gol_2C != r.gol_1D) {
-            return (
-                <table>
-                    <tr>
-                        <td align="right">{classificacaoC[1].name}</td>
-                        <td align="center">{r.gol_2C}x{r.gol_1D}</td>
-                        <td align="left">{classificacaoD[0].name}</td>
-                    </tr>
-                </table>
-            )
-        } else if (r.gol_2C === r.gol_1D) {
-            return (
-                <table>
-                    <tr>
-                        <td align="right">{classificacaoC[1].name}</td>
-                        <td align="center">{r.gol_2C} ({r.penaltiC2}) x ({r.penaltiD1}) {r.gol_1D}</td>
-                        <td align="left">{classificacaoD[0].name}</td>
-                    </tr>
-                </table>
-            )
-        }
-    }
-    if ((r.gol_2C + r.penaltiC2) > (r.gol_1D + r.penaltiD1)) {
-        class_oitavas.push(classificacaoC[1].name)
-    } else {
-        class_oitavas.push(classificacaoD[0].name)
-    }
+    PassaFase(
+        classificacaoC[0],
+        r.gol_1C,
+        r.penaltiC1,
+        classificacaoD[1],
+        r.gol_2D,
+        r.penaltiD2
+    )
 
-    // 1E X 2F 
-    function Oitavas5() {
-        if (r.gol_1E != r.gol_2F) {
-            return (
-                <table>
-                    <tr>
-                        <td align="right">{classificacaoE[0].name}</td>
-                        <td align="center">{r.gol_1E}x{r.gol_2F}</td>
-                        <td align="left">{classificacaoF[1].name}</td>
-                    </tr>
-                </table>
-            )
-        } else if (r.gol_1E === r.gol_2F) {
-            return (
-                <table>
-                    <tr>
-                        <td align="right">{classificacaoE[0].name}</td>
-                        <td align="center">{r.gol_1E} ({r.penaltiE1}) x ({r.penaltiF2}) {r.gol_2F}</td>
-                        <td align="left">{classificacaoF[1].name}</td>
-                    </tr>
-                </table>
-            )
-        }
-    }
-    if ((r.gol_1E + r.penaltiE1) > (r.gol_2F + r.penaltiF2)) {
-        class_oitavas.push(classificacaoE[0].name)
-    } else {
-        class_oitavas.push(classificacaoF[1].name)
-    }
+    PassaFase(
+        classificacaoE[0],
+        r.gol_1E,
+        r.penaltiE1,
+        classificacaoF[1],
+        r.gol_2F,
+        r.penaltiF2
+    )
 
-    // 2E X 1F 
-    function Oitavas6() {
-        if (r.gol_2E != r.gol_1F) {
-            return (
-                <table>
-                    <tr>
-                        <td align="right">{classificacaoE[1].name}</td>
-                        <td align="center">{r.gol_2E}x{r.gol_1F}</td>
-                        <td align="left">{classificacaoF[0].name}</td>
-                    </tr>
-                </table>
-            )
-        } else if (r.gol_2E === r.gol_1F) {
-            return (
-                <table>
-                    <tr>
-                        <td align="right">{classificacaoE[1].name}</td>
-                        <td align="center">{r.gol_2E} ({r.penaltiE2}) x ({r.penaltiF1}) {r.gol_1F}</td>
-                        <td align="left">{classificacaoF[0].name}</td>
-                    </tr>
-                </table>
-            )
-        }
-    }
-    if ((r.gol_2E + r.penaltiE2) > (r.gol_1F + r.penaltiF1)) {
-        class_oitavas.push(classificacaoE[1].name)
-    } else {
-        class_oitavas.push(classificacaoF[0].name)
-    }
+    PassaFase(
+        classificacaoG[0],
+        r.gol_1G,
+        r.penaltiG1,
+        classificacaoH[1],
+        r.gol_2H,
+        r.penaltiH2
+    )
 
-    // 1G X 2H
-    function Oitavas7() {
-        if (r.gol_1G != r.gol_2H) {
-            return (
-                <table>
-                    <tr>
-                        <td align="right">{classificacaoG[0].name}</td>
-                        <td align="center">{r.gol_1G}x{r.gol_2H}</td>
-                        <td align="left">{classificacaoH[1].name}</td>
-                    </tr>
-                </table>
-            )
-        } else if (r.gol_1G === r.gol_2H) {
-            return (
-                <table>
-                    <tr>
-                        <td align="right">{classificacaoG[0].name}</td>
-                        <td align="center">{r.gol_1G} ({r.penaltiG1}) x ({r.penaltiH2}) {r.gol_2H}</td>
-                        <td align="left">{classificacaoH[1].name}</td>
-                    </tr>
-                </table>
-            )
-        }
-    }
-    if ((r.gol_1G + r.penaltiG1) > (r.gol_2H + r.penaltiH2)) {
-        class_oitavas.push(classificacaoG[0].name)
-    } else {
-        class_oitavas.push(classificacaoH[1].name)
-    }
+    PassaFase(
+        classificacaoB[0],
+        r.gol_1B,
+        r.penaltiB1,
+        classificacaoA[1],
+        r.gol_2A,
+        r.penaltiA2
+    )
 
-    // 2G X 1H
-    function Oitavas8() {
-        if (r.gol_2G != r.gol_1H) {
-            return (
-                <table>
-                    <tr>
-                        <td align="right">{classificacaoG[1].name}</td>
-                        <td align="center">{r.gol_2G}x{r.gol_1H}</td>
-                        <td align="left">{classificacaoH[0].name}</td>
-                    </tr>
-                </table>
-            )
-        } else if (r.gol_2G === r.gol_1H) {
-            return (
-                <table>
-                    <tr>
-                        <td align="right">{classificacaoG[1].name}</td>
-                        <td align="center">{r.gol_2G} ({r.penaltiG2}) x ({r.penaltiH1}) {r.gol_1H}</td>
-                        <td align="left">{classificacaoH[0].name}</td>
-                    </tr>
-                </table>
-            )
-        }
-    }
-    if ((r.gol_2G + r.penaltiG2) > (r.gol_1H + r.penaltiH1)) {
-        class_oitavas.push(classificacaoG[1].name)
-    } else {
-        class_oitavas.push(classificacaoH[0].name)
-    }
+    PassaFase(
+        classificacaoD[0],
+        r.gol_1D,
+        r.penaltiD1,
+        classificacaoC[1],
+        r.gol_2C,
+        r.penaltiC2
+    )
+
+    PassaFase(
+        classificacaoF[0],
+        r.gol_1F,
+        r.penaltiF1,
+        classificacaoE[1],
+        r.gol_2E,
+        r.penaltiE2
+    )
+
+    PassaFase(
+        classificacaoH[0],
+        r.gol_1H,
+        r.penaltiH1,
+        classificacaoG[1],
+        r.gol_2G,
+        r.penaltiG2
+    )
+    
+
 
 
     // Quartas de final:
     let class_quartas = []
-    function Quartas1() {
-        if (r.gol_O11 != r.gol_O12) {
+    function Quartas(time1, golTime1, penaltiTime1, time2, golTime2, penaltiTime2) {
+        if (golTime1 != golTime2) {
             return (
                 <table>
                     <tr>
-                        <td align="right">{class_oitavas[0]}</td>
-                        <td align="center">{r.gol_O11}x{r.gol_O12}</td>
-                        <td align="left">{class_oitavas[2]}</td>
+                        <td align="right">{time1}</td>
+                        <td align="center">{golTime1}x{golTime2}</td>
+                        <td align="left">{time2}</td>
                     </tr>
                 </table>
             )
-        } else if (r.gol_O11 === r.gol_O12) {
+        } else if (golTime1 === golTime2) {
             return (
                 <table>
                     <tr>
-                        <td align="right">{class_oitavas[0]}</td>
-                        <td align="center">{r.gol_O11} ({r.penaltiO11}) x ({r.penaltiO12}) {r.gol_O12}</td>
-                        <td align="left">{class_oitavas[2]}</td>
+                        <td align="right">{time1}</td>
+                        <td align="center">{golTime1} ({penaltiTime1}) x ({penaltiTime2}) {golTime2}</td>
+                        <td align="left">{time2}</td>
                     </tr>
                 </table>
             )
         }
     }
-    if ((r.gol_O11 + r.penaltiO11) > (r.gol_O12 + r.penaltiO12)) {
-        class_quartas.push(class_oitavas[0])
-    } else { class_quartas.push(class_oitavas[2]) }
 
-    function Quartas2() {
-        if (r.gol_O21 != r.gol_O22) {
-            return (
-                <table>
-                    <tr>
-                        <td align="right">{class_oitavas[1]}</td>
-                        <td align="center">{r.gol_O21}x{r.gol_O22}</td>
-                        <td align="left">{class_oitavas[3]}</td>
-                    </tr>
-                </table>
-            )
-        } else if (r.gol_O21 === r.gol_O22) {
-            return (
-                <table>
-                    <tr>
-                        <td align="right">{class_oitavas[1]}</td>
-                        <td align="center">{r.gol_O21} ({r.penaltiO21}) x ({r.penaltiO22}) {r.gol_O21}</td>
-                        <td align="left">{class_oitavas[3]}</td>
-                    </tr>
-                </table>
-            )
-        }
+    function PassaQuartas (time1, golTime1, penaltiTime1, time2, golTime2, penaltiTime2) {
+        if ((golTime1 + penaltiTime1) > (golTime2 + penaltiTime2)) {
+            class_quartas.push(time1)
+        } else { class_quartas.push(time2) }
     }
-    if ((r.gol_O21 + r.penaltiO21) > (r.gol_O22 + r.penaltiO22)) {
-        class_quartas.push(class_oitavas[1])
-    } else { class_quartas.push(class_oitavas[3]) }
 
-    function Quartas3() {
-        if (r.gol_O31 != r.gol_O32) {
-            return (
-                <table>
-                    <tr>
-                        <td align="right">{class_oitavas[4]}</td>
-                        <td align="center">{r.gol_O31}x{r.gol_O32}</td>
-                        <td align="left">{class_oitavas[6]}</td>
-                    </tr>
-                </table>
-            )
-        } else if (r.gol_O31 === r.gol_O32) {
-            return (
-                <table>
-                    <tr>
-                        <td align="right">{class_oitavas[4]}</td>
-                        <td align="center">{r.gol_O31} ({r.penaltiO31}) x ({r.penaltiO32}) {r.gol_O31}</td>
-                        <td align="left">{class_oitavas[6]}</td>
-                    </tr>
-                </table>
-            )
-        }
-    }
-    if ((r.gol_O31 + r.penaltiO31) > (r.gol_O32 + r.penaltiO32)) {
-        class_quartas.push(class_oitavas[4])
-    } else { class_quartas.push(class_oitavas[6]) }
+    PassaQuartas (
+        class_oitavas[0],
+        r.gol_O11,
+        r.penaltiO11,
+        class_oitavas[1],
+        r.gol_O12,
+        r.penaltiO12
+    )
 
-    function Quartas4() {
-        if (r.gol_O41 != r.gol_O42) {
-            return (
-                <table>
-                    <tr>
-                        <td align="right">{class_oitavas[5]}</td>
-                        <td align="center">{r.gol_O41}x{r.gol_O42}</td>
-                        <td align="left">{class_oitavas[7]}</td>
-                    </tr>
-                </table>
-            )
-        } else if (r.gol_O41 === r.gol_O42) {
-            return (
-                <table>
-                    <tr>
-                        <td align="right">{class_oitavas[5]}</td>
-                        <td align="center">{r.gol_O41} ({r.penaltiO41}) x ({r.penaltiO42}) {r.gol_O41}</td>
-                        <td align="left">{class_oitavas[7]}</td>
-                    </tr>
-                </table>
-            )
-        }
-    }
-    if ((r.gol_O41 + r.penaltiO41) > (r.gol_O42 + r.penaltiO42)) {
-        class_quartas.push(class_oitavas[5])
-    } else { class_quartas.push(class_oitavas[7]) }
+    PassaQuartas (
+        class_oitavas[2],
+        r.gol_O21,
+        r.penaltiO21,
+        class_oitavas[3],
+        r.gol_O22,
+        r.penaltiO22
+    )
+
+    PassaQuartas (
+        class_oitavas[4],
+        r.gol_O31,
+        r.penaltiO31,
+        class_oitavas[5],
+        r.gol_O32,
+        r.penaltiO32
+    )
+
+    PassaQuartas (
+        class_oitavas[6],
+        r.gol_O41,
+        r.penaltiO41,
+        class_oitavas[7],
+        r.gol_O42,
+        r.penaltiO42
+    )
 
     // Semi-final:
     let class_semi = []
-    function Semi1() {
-        if (r.gol_S11 != r.gol_S12) {
+    function Semi(time1, golTime1, penaltiTime1, time2, golTime2, penaltiTime2) {
+        if (golTime1 != golTime2) {
             return (
                 <table>
                     <tr>
-                        <td align="right">{class_quartas[0]}</td>
-                        <td align="center">{r.gol_S11}x{r.gol_S12}</td>
-                        <td align="left">{class_quartas[2]}</td>
+                        <td align="right">{time1}</td>
+                        <td align="center">{golTime1}x{golTime2}</td>
+                        <td align="left">{time2}</td>
                     </tr>
                 </table>
             )
-        } else if (r.gol_S11 === r.gol_S12) {
+        } else if (golTime1 === golTime2) {
             return (
                 <table>
                     <tr>
-                        <td align="right">{class_quartas[0]}</td>
-                        <td align="center">{r.gol_S11} ({r.penaltiS11}) x ({r.penaltiS12}) {r.gol_S12}</td>
-                        <td align="left">{class_quartas[2]}</td>
+                        <td align="right">{time1}</td>
+                        <td align="center">{golTime1} ({penaltiTime1}) x ({penaltiTime2}) {golTime1}</td>
+                        <td align="left">{time2}</td>
                     </tr>
                 </table>
             )
         }
     }
-    if ((r.gol_S11 + r.penaltiS11) > (r.gol_S12 + r.penaltiS12)) {
-        class_semi.push(class_quartas[0])
-    } else { class_semi.push(class_quartas[2]) }
+    
+    function Finalista (time1, golTime1, penaltiTime1, time2, golTime2, penaltiTime2) {
+        if ((golTime1 + penaltiTime1) > (golTime2 + penaltiTime2)) {
+            class_semi.push(time1)
+        } else { class_semi.push(time2) }
+    }
 
-    function Semi2() {
-        if (r.gol_S21 != r.gol_S22) {
-            return (
-                <table>
-                    <tr>
-                        <td align="right">{class_quartas[1]}</td>
-                        <td align="center">{r.gol_S21}x{r.gol_S22}</td>
-                        <td align="left">{class_quartas[3]}</td>
-                    </tr>
-                </table>
-            )
-        } else if (r.gol_S21 === r.gol_S22) {
-            return (
-                <table>
-                    <tr>
-                        <td align="right">{class_quartas[1]}</td>
-                        <td align="center">{r.gol_S21} ({r.penaltiS21}) x ({r.penaltiS22}) {r.gol_S21}</td>
-                        <td align="left">{class_quartas[3]}</td>
-                    </tr>
-                </table>
-            )
-        }
-    }
-    if ((r.gol_S21 + r.penaltiS21) > (r.gol_S22 + r.penaltiS22)) {
-        class_semi.push(class_quartas[1])
-    } else { class_semi.push(class_quartas[3]) }
+    Finalista (
+        class_quartas[0],
+        r.gol_S11,
+        r.penaltiS11,
+        class_quartas[1],
+        r.gol_S12,
+        r.penaltiS12
+    )
+
+    Finalista (
+        class_quartas[2],
+        r.gol_S21,
+        r.penaltiS21,
+        class_quartas[3],
+        r.gol_S22,
+        r.penaltiS22
+    )
 
     //Grande Final:
     let campeao = []
@@ -820,7 +636,7 @@ export function Simulacao() {
                 </div>
                 <div class="divClassGrupos">
                     <ClassGrupos
-                        grupo="Grupo A"
+                        grupo="Grupo D"
                         time1={classificacaoD[0]}
                         time2={classificacaoD[1]}
                         time3={classificacaoD[2]}
@@ -859,26 +675,153 @@ export function Simulacao() {
                 </div>
                 <p>* SG = Saldo de Gols</p>
             </div>
-            <Oitavas
-                chave1={Oitavas1()}
-                chave2={Oitavas2()}
-                chave3={Oitavas3()}
-                chave4={Oitavas4()}
-                chave5={Oitavas5()}
-                chave6={Oitavas6()}
-                chave7={Oitavas7()}
-                chave8={Oitavas8()}
-            />
-            <Quartas
-            chave1={Quartas1()}
-            chave2={Quartas2()}
-            chave3={Quartas3()}
-            chave4={Quartas4()}
-            />
-            <Semi 
-            chave1={Semi1()}
-            chave2={Semi2()}
-            />
+            <div class="mata-mata">
+                <div class="titulo">Oitavas de Final</div>
+                <table class="eliminatorias">
+                    <td>{Oitavas(
+                        classificacaoA[0],
+                        classificacaoB[1],
+                        r.gol_1A,
+                        r.gol_2B,
+                        r.penaltiA1,
+                        r.penaltiB2
+                    )}</td>
+                    <td>{Oitavas(
+                        classificacaoC[0],
+                        classificacaoD[1],
+                        r.gol_1C,
+                        r.gol_2D,
+                        r.penaltiC1,
+                        r.penaltiD2
+                    )}</td>
+                </table>
+                <table class="eliminatorias">
+                    <td>{Oitavas(
+                        classificacaoE[0],
+                        classificacaoF[1],
+                        r.gol_1E,
+                        r.gol_2F,
+                        r.penaltiE1,
+                        r.penaltiF2
+                    )}</td>
+                    <td>{Oitavas(
+                        classificacaoG[0],
+                        classificacaoH[1],
+                        r.gol_1G,
+                        r.gol_2H,
+                        r.penaltiG1,
+                        r.penaltiH2
+                    )}</td>
+                </table>
+                <table class="eliminatorias">
+                    <td>{Oitavas(
+                        classificacaoB[0],
+                        classificacaoA[1],
+                        r.gol_1B,
+                        r.gol_2A,
+                        r.penaltiB1,
+                        r.penaltiA2
+                    )}</td>
+                    <td>{Oitavas(
+                        classificacaoD[0],
+                        classificacaoC[1],
+                        r.gol_1D,
+                        r.gol_2C,
+                        r.penaltiD1,
+                        r.penaltiC2
+                    )}</td>
+                </table>
+                <table class="eliminatorias">
+                    <td>{Oitavas(
+                        classificacaoF[0],
+                        classificacaoE[1],
+                        r.gol_1F,
+                        r.gol_2E,
+                        r.penaltiF1,
+                        r.penaltiE2
+                    )}</td>
+                    <td>{Oitavas(
+                        classificacaoH[0],
+                        classificacaoG[1],
+                        r.gol_1H,
+                        r.gol_2G,
+                        r.penaltiH1,
+                        r.penaltiG2
+                    )}</td>                   
+                </table>
+            </div>
+            <div class="mata-mata">
+            <div class="titulo">Quartas de Final</div>
+                <table class="eliminatorias">
+                    <td>
+                    {Quartas(
+                        class_oitavas[0],
+                        r.gol_O11,
+                        r.penaltiO11,
+                        class_oitavas[1],
+                        r.gol_O12,
+                        r.penaltiO12
+                    )}
+                    </td>
+                    <td>
+                    {Quartas(
+                        class_oitavas[2],
+                        r.gol_O21,
+                        r.penaltiO21,
+                        class_oitavas[3],
+                        r.gol_O22,
+                        r.penaltiO22
+                    )}
+                    </td>
+                    </table>
+                    <table class="eliminatorias">
+                    <td>
+                    {Quartas(
+                        class_oitavas[4],
+                        r.gol_O31,
+                        r.penaltiO31,
+                        class_oitavas[5],
+                        r.gol_O32,
+                        r.penaltiO32
+                    )}
+                    </td>
+                    <td>
+                    {Quartas(
+                        class_oitavas[6],
+                        r.gol_O41,
+                        r.penaltiO41,
+                        class_oitavas[7],
+                        r.gol_O12,
+                        r.penaltiO12
+                    )}
+                    </td>
+                </table>
+            </div>
+            <div class="mata-mata">
+            <div class="titulo">Semi-final</div>
+                <table class="eliminatorias">
+                <td>
+                {Semi(
+                    class_quartas[0],
+                    r.gol_S11,
+                    r.penaltiS11,
+                    class_quartas[1],
+                    r.gol_S12,
+                    r.penaltiS12
+                )}
+                </td>
+                <td>
+                {Semi(
+                    class_quartas[2],
+                    r.gol_S21,
+                    r.penaltiS21,
+                    class_quartas[3],
+                    r.gol_S22,
+                    r.penaltiS22
+                )}
+                </td>
+                </table>
+            </div>
             <div class="final">
                 <div class="titulo-final">Grande Final</div>
                 <table class="tabela-final">
