@@ -40,22 +40,22 @@ export function Simulacao() {
 
     var z = 0 // variavel de apoio para o sorteio
     while (z < 32) {
-        var y = Math.floor(Math.random() * ((31 - x) - 0 + 1)) + 0
+        var y = Math.floor(Math.random() * ((31 - z) - 0 + 1)) + 0
         if (z <= 3) {
             grupoA.push(lista[y])
-        } else if (z > 3 && x <= 7) {
+        } else if (z > 3 && z <= 7) {
             grupoB.push(lista[y])
-        } else if (z > 7 && x <= 11) {
+        } else if (z > 7 && z <= 11) {
             grupoC.push(lista[y])
-        } else if (z > 11 && x <= 15) {
+        } else if (z > 11 && z <= 15) {
             grupoD.push(lista[y])
-        } else if (z > 15 && x <= 19) {
+        } else if (z > 15 && z <= 19) {
             grupoE.push(lista[y])
-        } else if (z > 19 && x <= 23) {
+        } else if (z > 19 && z <= 23) {
             grupoF.push(lista[y])
-        } else if (z > 20 && x <= 27) {
+        } else if (z > 20 && z <= 27) {
             grupoG.push(lista[y])
-        } else if (z > 27 && x <= 31) {
+        } else if (z > 27 && z <= 31) {
             grupoH.push(lista[y])
         }
         lista.splice(y, 1)
