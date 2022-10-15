@@ -296,8 +296,6 @@ export function Simulacao() {
     )
     
 
-
-
     // Quartas de final:
     let class_quartas = []
     function Quartas(time1, golTime1, penaltiTime1, time2, golTime2, penaltiTime2) {
@@ -791,8 +789,8 @@ export function Simulacao() {
                         r.gol_O41,
                         r.penaltiO41,
                         class_oitavas[7],
-                        r.gol_O12,
-                        r.penaltiO12
+                        r.gol_O42,
+                        r.penaltiO42
                     )}
                     </td>
                 </table>
