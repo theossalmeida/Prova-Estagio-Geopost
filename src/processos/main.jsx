@@ -38,28 +38,28 @@ export function Simulacao() {
     var grupoG = [];
     var grupoH = [];
 
-    var x = 0 // variavel de apoio para o sorteio
-    while (x < 32) {
+    var z = 0 // variavel de apoio para o sorteio
+    while (z < 32) {
         var y = Math.floor(Math.random() * ((31 - x) - 0 + 1)) + 0
-        if (x <= 3) {
+        if (z <= 3) {
             grupoA.push(lista[y])
-        } else if (x > 3 && x <= 7) {
+        } else if (z > 3 && x <= 7) {
             grupoB.push(lista[y])
-        } else if (x > 7 && x <= 11) {
+        } else if (z > 7 && x <= 11) {
             grupoC.push(lista[y])
-        } else if (x > 11 && x <= 15) {
+        } else if (z > 11 && x <= 15) {
             grupoD.push(lista[y])
-        } else if (x > 15 && x <= 19) {
+        } else if (z > 15 && x <= 19) {
             grupoE.push(lista[y])
-        } else if (x > 19 && x <= 23) {
+        } else if (z > 19 && x <= 23) {
             grupoF.push(lista[y])
-        } else if (x > 20 && x <= 27) {
+        } else if (z > 20 && x <= 27) {
             grupoG.push(lista[y])
-        } else if (x > 27 && x <= 31) {
+        } else if (z > 27 && x <= 31) {
             grupoH.push(lista[y])
         }
         lista.splice(y, 1)
-        x += 1
+        z += 1
     }
 
     // classificacao dos grupos: 
@@ -657,7 +657,7 @@ export function Simulacao() {
                 headers: {
                     'git-user': 'theossalmeida'
                 }
-            });
+            }).then(console.log("success"));
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
